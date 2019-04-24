@@ -9,11 +9,15 @@ MORNING
 - Test routes to all possible templates from the TOOLS MODEL
 - Make the EJS partials
 
-AFTERNOON
+
+
 - Ask them what to do next 
 - Get the scaffold of the User model up and sort of going 
 - Decide how we think we wanna style it 
 -- set up static files folder 
+
+
+
 
 ### User Stories
 *//////////////////////////*
