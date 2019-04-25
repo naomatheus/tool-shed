@@ -4,10 +4,10 @@ const connectionString = 'mongodb://localhost/toolshed';
 const Tool = require('./tool.js')
 
 const userSchema = new mongoose.Schema({
-	toolAvailable: Boolean,
-	contactInfo: [{name: String, email: String}],
+	// toolAvailable: Boolean,
+	userName: String, 
+	email: String,
 	//tool documents from MongoDB will pushed via reference to "Tool" collection in MongoDB
-	toolDoc: [{type: mongoose.Schema.Types.ObjectId, ref:'Tool'}]
 	// I named this toolDoc, so semantically the Tool documents are being pushed into the User documents that create them - M
 });
 

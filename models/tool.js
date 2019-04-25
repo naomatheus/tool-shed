@@ -6,10 +6,20 @@ const connectionString = 'mongodb://localhost/toolshed';
 const toolSchema = new mongoose.Schema({
 	timePosted: Date,
 	typeOfTool: String,
-	description: String
+	description: String,
+	toolAvailable: Boolean,
+	comments: [{
+		type: mongoose.Schema.Types.ObjectId,
+		ref: 'Comment'
+	}],
+	owner: {
+		type: mongoose.Schema.Types.ObjectId, 
+		ref: 'User'
+	}
+
 });
 
-/////^^^ NOT SURE ABOUT THE SYNTAX HERE ^^^//////
+
 
 console.log("");
 console.log("");
