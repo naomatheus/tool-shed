@@ -23,7 +23,7 @@ router.get('/', async (req, res) => {
 
 		const foundTools = await Tool.find({});
 		console.log('====================');
-		console.log(`${foundTools} <===== has been found in the INDEX GET ROUTE`);
+		console.log(`${foundTools} <===== has been found in the TOOL INDEX GET ROUTE`);
 		console.log('====================');
 		res.render('tools/index.ejs', {
 			tools: foundTools
@@ -40,7 +40,7 @@ router.get('/:id', async (req, res) => {
 	try{
 		const foundTool = await Tool.findById({_id: req.params.id});
 		console.log('=====================');
-		console.log(`${foundTool} <======= tool has hit the SHOW GET ROUTE!!`);
+		console.log(`${foundTool} <======= tool has hit the TOOL SHOW GET ROUTE!!`);
 		console.log('=====================');
 		res.render('tools/show.ejs', {
 			tool: foundTool
@@ -61,7 +61,7 @@ router.get('/:id/edit', async (req, res) => {
 
 		const foundTool = await Tool.findByIdAndUpdate({_id: req.params.id});
 		console.log('=====================');
-		console.log(`${foundTool} <====== tool has hit the EDIT/UPDATE GET ROUTE!!!`);
+		console.log(`${foundTool} <====== tool has hit the TOOL EDIT/UPDATE GET ROUTE!!!`);
 		console.log('=====================');
 		res.render('tools/edit.ejs', {
 			tool: foundTool
@@ -77,7 +77,7 @@ router.post('/', async (req, res) => { console.log("HEY HI TOOLS POST HELLO")
 	try{
 		const createdTool = await Tool.create(req.body);
 		console.log('=====================');
-		console.log(`${createdTool} <===== tool has been created in the CREATE POST ROUTE!!!`);
+		console.log(`${createdTool} <===== tool has been created in the TOOL CREATE POST ROUTE!!!`);
 		console.log('=====================');
 		res.redirect('/tools');
 
@@ -93,7 +93,7 @@ router.put('/:id', async (req, res) => {
 
 		const updatedTool = await Tool.findByIdAndUpdate(req.params.id, req.body, {new: true});
 		console.log('=====================');
-		console.log(`${updatedTool} <========== this tool hit the EDIT PUT ROUTE`);
+		console.log(`${updatedTool} <========== this tool hit the TOOL EDIT PUT ROUTE`);
 		console.log('=====================');
 		res.redirect('/tools/' + req.params.id);
 
