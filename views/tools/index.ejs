@@ -1,9 +1,5 @@
-<!DOCTYPE html>
-<html>
-<head>
-	<title>Tools Index page</title>
-</head>
-<body>
+<%- include ../partials/header.ejs %>
+<title>Tools Index Page</title>
 	<h2>Tools Index page</h2>
 		<% tools.forEach((tools) => { %>
 	<ul>
@@ -15,7 +11,10 @@
 	<br>
 
 		<% })%>
+<<<<<<< HEAD
 
 	<a href="/tools/new" id="createTool">POST NEW TOOL</a>
-</body>
-</html>
+
+
+<%- include ../partials/footer.ejs %>
+
