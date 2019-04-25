@@ -5,5 +5,16 @@
 </head>
 <body>
 	<h2>Tools Index page</h2>
+		<% tools.forEach((tools) => { %>
+	<ul>
+				<li><%=tools.timePosted%></li>  
+				<br>
+				<li><%=tools.typeOfTool%></li> 
+				<br>
+				<li><%=tools.description%></li> 
+
+	</ul>
+		<% })%>
+
 </body>
 </html>

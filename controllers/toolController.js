@@ -1,10 +1,10 @@
-const express = require('express');
-const mongoose = require('mongoose');
-const router = express.Router();
-const methodOverride = require('method-override');
-const bodyParser = require('body-parser');
-const ejs = require('ejs');
-const pathfinderUI = require('pathfinder-ui');
+const express 			= require('express');
+const mongoose 			= require('mongoose');
+const router 			= express.Router();
+const methodOverride 	= require('method-override');
+const bodyParser 		= require('body-parser');
+const ejs 				= require('ejs');
+const pathfinderUI 		= require('pathfinder-ui');
 /// node modules
 
 /// require tools model ///
@@ -31,8 +31,38 @@ router.get('/', async (req, res) => {
 		res.send(err)
 	}
 })	
-
 //// tools index route /// 
+
+//// tools show route///
+router.get('/:id', async (req, res) => {
+	try{
+		const foundTool = await Tool.findById({_id: req.params.id, });
+		console.log(`${foundTool} <======= tool has hit the SHOW GET ROUTE!!`);
+		res.render('show.ejs', {
+			tool: foundTool
+		});
+
+	} catch (err){
+		res.send(err);
+	}
+});
+
+/// TOOLS SHOW ROUTE ///
+
+
+
+/// START OF CREATE/POST ROUTE ///
+router.post('/', async (req, res) => {
+	try{
+		const createdTool = await Tool.create(req.body);
+		console.log(`${createdTool} <===== tool has been created in the CREATE POST ROUTE!!!`);
+		res.redirect('/tools');
+
+	} catch (err){
+		res.send(`${err} <====== THERE HAS BEEN AN ERROR!!!`)
+	}
+});
+/// START OF CREATE/POST ROUTE ///
 
 module.exports = router;
 

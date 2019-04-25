@@ -5,7 +5,8 @@ const connectionString = 'mongodb://localhost/toolshed';
 
 const toolSchema = new mongoose.Schema({
 	timePosted: Date,
-	text: String
+	typeOfTool: String,
+	description: String
 });
 
 /////^^^ NOT SURE ABOUT THE SYNTAX HERE ^^^//////

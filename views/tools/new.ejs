@@ -5,5 +5,15 @@
 </head>
 <body>
 	<h2>Tools New/Create Page</h2>
+
+		<form action="/tools" method="POST">
+			<br>
+			Time Posted: <input type="date" name="timePosted" placeholder='format: dd/mm/yyyy'/>
+			<br>
+			Type of Tool: <input type="text" name="typeOfTool"/>
+			<br>
+			Description: <input type="text" name="description">
+			<button type="submit">POST TOOL</button>
+		</form>
 </body>
 </html>
