@@ -2,20 +2,29 @@
 # Tool shed
 ## Find the tools you need....instantly
 
+
+
+
+
+
+
+
+
+
 ## GOALS 4-25-19 
 
 MORNING
-- Set up the complete TOOLS MODEL **DONE**
-- Test routes to all possible templates from the TOOLS MODEL **DONE**
-- Make the EJS partials **DONE**
+- ~Set up the complete TOOLS MODEL **DONE**~
+- ~Test routes to all possible templates from the TOOLS MODEL **DONE**~
+- ~Make the EJS partials **DONE**~
 
 
-- Ask them what to do next 
-- Get the scaffold of the User model up and sort of going 
+- ~Ask them what to do next ~
+- ~ Get the User model 100% up and sort of going ~
+~-- set up static files folder **DONE**~
+
+
 - Decide how we think we wanna style it **WORKING**
--- set up static files folder **DONE**
-
-
 
 
 ### User Stories
