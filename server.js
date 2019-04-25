@@ -1,10 +1,10 @@
-const express = require('express');
-const app = express();
-const serveStatic = require('serve-static');
-const ejs = require('ejs');
-const bodyParser = require('body-parser');
-const methodOverride = require('method-override');
-const pathfinderUI = require('pathfinder-ui');
+const express 			= require('express');
+const app 				= express();
+const serveStatic 		= require('serve-static');
+const ejs 				= require('ejs');
+const bodyParser 		= require('body-parser');
+const methodOverride 	= require('method-override');
+const pathfinderUI 		= require('pathfinder-ui');
 ////// node modules //// 
 
 /// require db ///
