@@ -14,7 +14,7 @@ require('./db/db.js');
 
 /// middle ware ///
 
-// app.use(express.static('files'));
+app.use(express.static('servestatic'));
 app.use(methodOverride('_method'));
 app.use(bodyParser.urlencoded({extended: false}));
 
@@ -23,7 +23,7 @@ app.use('/pathfinder', function(req, res, next){
     next()
 }, pathfinderUI.router)
 
-/// middle ware ///
+/// MIDDLEWARE ///
 
 
 // require + use controllers 
