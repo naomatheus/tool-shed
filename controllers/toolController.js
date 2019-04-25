@@ -55,20 +55,8 @@ router.get('/:id', async (req, res) => {
 
 
 
-/// START OF CREATE/POST ROUTE ///
-router.post('/', async (req, res) => {
-	try{
-		const createdTool = await Tool.create(req.body);
-		console.log('=====================');
-		console.log(`${createdTool} <===== tool has been created in the CREATE POST ROUTE!!!`);
-		console.log('=====================');
-		res.redirect('/tools');
 
-	} catch (err){
-		res.send(`${err} <====== THERE HAS BEEN AN ERROR!!!`)
-	}
-});
-/// START OF CREATE/POST ROUTE ///
+
 
 /// START OF EDIT GET ROUTE ///
 router.get('/:id/edit', async (req, res) => {
@@ -85,11 +73,22 @@ router.get('/:id/edit', async (req, res) => {
 		res.send(err);
 	}
 })
+/// END OF EDIT GET ROUTE ///
 
+/// START OF CREATE/POST ROUTE ///
+router.post('/', async (req, res) => { console.log("HEY HI TOOLS POST HELLO")
+	try{
+		const createdTool = await Tool.create(req.body);
+		console.log('=====================');
+		console.log(`${createdTool} <===== tool has been created in the CREATE POST ROUTE!!!`);
+		console.log('=====================');
+		res.redirect('/tools');
 
-
-/// START OF EDIT GET ROUTE ///
-
+	} catch (err){
+		res.send(`${err} <====== THERE HAS BEEN AN ERROR!!!`)
+	}
+});
+/// START OF CREATE/POST ROUTE ///
 
 /// START OF EDIT PUT ROUTE ///
 router.put('/:id', async (req, res) => {
@@ -115,7 +114,7 @@ router.delete('/:id', async (req, res) => {
 	try {
 		const deletedTool = await Tool.findByIdAndRemove(req.params.id);
 		console.log(`${deletedTool} <--- THIS TOOL HAS BEEN DELETED!!!`);
-		res.redirect('/');
+		res.redirect('/tools');
 	} catch (err) {
 		res.send(err)
 	}
