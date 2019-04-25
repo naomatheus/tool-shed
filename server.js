@@ -28,8 +28,8 @@ app.use('/pathfinder', function(req, res, next){
 
 // require + use controllers 
 
-// const commentController = require('./controllers/commentController.js');
-// app.use('/comments', commentController)
+const commentController = require('./controllers/commentController.js');
+
 
 const toolController = require('./controllers/toolController.js');
 
@@ -38,6 +38,7 @@ const userController = require('./controllers/userController.js');
 // require controllers 
 app.use('/users', userController);
 app.use('/tools', toolController)
+app.use('/comments', commentController)
 
 /// listener
 
