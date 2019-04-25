@@ -4,7 +4,18 @@
 	<title>Users Index Pages</title>
 </head>
 <body>
-	<h2>Users Index Pages</h2>
+<h2>Users Index Pages</h2>
+
+
+<% users.forEach((users) => { %>
+	<ul>
+		<li><a href='/users/<%=users._id%>'><%=users.userName%></li></a>
+		<li><%=users.userName%></li>  
+		<li><%=users.email%></li> 
+	</ul>
+		<br>
+
+<% })%>
 
 </body>
 </html>
