@@ -52,7 +52,6 @@ router.get('/:id', async (req, res) => {
 //// SHOW GET ROUTE /// 
 
 //// CREATE/POST ROUTE ///// 
-
 router.post('/', async (req, res) => {
 	try {
 		const createdComment = await Comment.create(req.body);

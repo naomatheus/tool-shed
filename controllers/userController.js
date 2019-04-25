@@ -61,7 +61,7 @@ router.get('/:id/edit', async (req, res) => {
 	try{
 		const foundUser = await User.findByIdAndUpdate({_id: req.params.id});
 		console.log("===========");
-		console.log(`${foundUser} <=========== has been found in the USER EDIT UPDATE GET ROUTE!!!`);
+		console.log(`${foundUser} <=========== has been found in the USER EDIT/UPDATE GET ROUTE!!!`);
 		console.log("===========");
 		res.render('users/edit.ejs', {
 			user: foundUser
