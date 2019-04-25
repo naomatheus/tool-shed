@@ -5,5 +5,13 @@
 </head>
 <body>
 	<h1>Tools Edit Page</h1>
+
+		<form id="toolEditForm" action="/tools/<%=tool._id%>?_method=PUT" method="POST">
+			Type of Tool: <input type="text" name="typeOfTool" value="<%=tool.typeOfTool%>"/>
+			<br>
+			Description: <input type="text" name="description" value="<%=tool.description%>"/>
+			<br>
+			<button type="submit">UPDATE TOOL</button>
+		</form>		
 </body>
 </html>

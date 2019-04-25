@@ -4,7 +4,21 @@
 	<title>Tools Show Page</title>
 </head>
 <body>
-	<h2>Tools Show Page</h2>
+	<h2><%=tool.typeOfTool%>'s Show Page</h2>
+
+		<ul id="showUL">
+			<li><%=tool.typeOfTool%></li>
+			<br>
+			<li><%=tool.description%></li>
+			<br>
+			<li><%=tool.timePosted%></li>
+		</ul>
+
+		<form action='/tools/<%=tool._id%>?_method=DELETE' method='post'>
+			<button type='submit'>DELETE TOOL</button>
+		</form>
+			<br>
+			<a href="/tools/<%=tool._id%>/edit">EDIT TOOL</a>
 	
 
 	
