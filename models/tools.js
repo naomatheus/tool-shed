@@ -1,3 +1,4 @@
+
 const mongoose = require('mongoose');
 
 const connectionString = 'mongodb://localhost/toolshed';
@@ -22,3 +23,12 @@ console.log("");
 console.log("");
 console.log("THIS IS THE TOOLS MODEL:");
 console.log(Tools);
+
+
+
+
+
+
+
+module.exports = Tools;
+
