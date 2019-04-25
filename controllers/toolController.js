@@ -38,7 +38,7 @@ router.get('/', async (req, res) => {
 //// tools show route///
 router.get('/:id', async (req, res) => {
 	try{
-		const foundTool = await Tool.findById({_id: req.params.id, });
+		const foundTool = await Tool.findById({_id: req.params.id});
 		console.log('=====================');
 		console.log(`${foundTool} <======= tool has hit the SHOW GET ROUTE!!`);
 		console.log('=====================');
@@ -52,9 +52,6 @@ router.get('/:id', async (req, res) => {
 });
 
 /// TOOLS SHOW ROUTE ///
-
-
-
 
 
 
