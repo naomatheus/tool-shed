@@ -38,7 +38,7 @@ router.get('/:id', async (req, res) => {
 	try{
 		const foundTool = await Tool.findById({_id: req.params.id, });
 		console.log(`${foundTool} <======= tool has hit the SHOW GET ROUTE!!`);
-		res.render('show.ejs', {
+		res.render('tools/show.ejs', {
 			tool: foundTool
 		});
 
@@ -64,6 +64,32 @@ router.post('/', async (req, res) => {
 });
 /// START OF CREATE/POST ROUTE ///
 
+/// TOOLS DELETE ROUTE ///
+
+router.delete('/:id', async (req, res) => {
+	
+	try {
+		const deletedTool = await Tool.findByIdAndRemove(req.params.id);
+		console.log(`${deletedTool} <--- this is deleted tool`);
+		res.redirect('/tools') 	
+
+	} catch (err) {
+		res.send(err)
+	}
+
+})
+
+
+
+
+
+
+/// TOOLS DELETE ROUTE ///
+
 module.exports = router;
+
+
+
+
 
 
