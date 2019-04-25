@@ -26,11 +26,16 @@ app.use('/pathfinder', function(req, res, next){
 /// middle ware ///
 
 
-// require controllers 
+// require + use controllers 
 
-const commentController = require('./controllers/commentController.js');
+// const commentController = require('./controllers/commentController.js');
+// app.use('/comments', commentController)
+
 const toolController = require('./controllers/toolController.js');
-const userController = require('./controllers/userController.js');
+app.use('/tools', toolController)
+
+// const userController = require('./controllers/userController.js');
+// app.use('/users', userController);
 
 // require controllers 
 

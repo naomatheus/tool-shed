@@ -3,8 +3,8 @@ const mongoose = require('mongoose');
 
 const connectionString = 'mongodb://localhost/toolshed';
 
-const toolsSchema = new mongoose.Schema({
-	timePosted: Iso(date.time),
+const toolSchema = new mongoose.Schema({
+	timePosted: Date,
 	text: String
 });
 
@@ -14,15 +14,15 @@ console.log("");
 console.log("");
 console.log("");
 console.log("THIS IS THE TOOLS SCHEMA:");
-console.log(toolsSchema);
+console.log(toolSchema);
 
-const Tools = mongoose.model('Tools', toolsSchema);
+const Tool = mongoose.model('Tool', toolSchema);
 
 console.log("");
 console.log("");
 console.log("");
 console.log("THIS IS THE TOOLS MODEL:");
-console.log(Tools);
+console.log(Tool);
 
 
 
@@ -30,5 +30,5 @@ console.log(Tools);
 
 
 
-module.exports = Tools;
+module.exports = Tool;
 

@@ -8,12 +8,12 @@ const pathfinderUI = require('pathfinder-ui');
 /// node modules
 
 /// require tools model ///
-const Tools = require('../models/tools.js');
+const Tool = require('../models/tool.js');
 /// require tools model ///
 
 /// tools new route ///
 router.get('/new', (req, res) => {
-	res.render('new.ejs')
+	res.render('tools/new.ejs')
 })
 /// tools new route ///
 
@@ -22,8 +22,8 @@ router.get('/new', (req, res) => {
 router.get('/', async (req, res) => {
 	try {
 
-		const foundTools = await Tools.find({});
-		res.render('index.ejs', {
+		const foundTools = await Tool.find({});
+		res.render('tools/index.ejs', {
 			tools: foundTools
 		})
 

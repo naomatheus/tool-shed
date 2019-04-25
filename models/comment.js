@@ -2,8 +2,8 @@ const mongoose = require('mongoose');
 
 const connectionString = 'mongodb://localhost/toolshed';
 
-const commentsSchema = new mongoose.Schema({
-	toolInfo: [name: String, details: String],
+const commentSchema = new mongoose.Schema({
+	toolInfo: [{name: String, details: String}],
 	location: Number, //zip code
 	isAvailable: Boolean
 	//comments: ({body: str, date: now})
@@ -15,13 +15,13 @@ console.log("");
 console.log("");
 console.log("");
 console.log("THIS IS THE SCHEMA:");
-console.log(commentsSchema);
+console.log(commentSchema);
 
-const Comments = mongoose.model('Comments', commentsSchema);
+const Comment = mongoose.model('Comment', commentSchema);
 
 console.log("");
 console.log("");
 console.log("");
 console.log("THIS IS THE MODEL:");
-console.log(Comments);
+console.log(Comment);
 
