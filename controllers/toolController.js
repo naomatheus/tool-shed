@@ -55,9 +55,6 @@ router.get('/:id', async (req, res) => {
 
 
 
-
-
-
 /// START OF EDIT GET ROUTE ///
 router.get('/:id/edit', async (req, res) => {
 	try{

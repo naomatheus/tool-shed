@@ -49,7 +49,25 @@ router.get('/:id', async (req, res) => {
 	}
 })
 
-//// SHOW GET ROUTE /// 
+//// END OF SHOW GET ROUTE /// 
+
+//// COMMENT EDIT GET ROUTE ////
+
+router.get('/:id/edit', async (req, res) => {
+	try {
+		const foundComment = await Comment.findByIdAndUpdate({_id: req.params.id});
+		console.log('=============');
+		console.log(`${foundComment}, <====== has been found in the COMMENT EDIT/UPDATE GET ROUTE`);
+		console.log('=============');
+		res.render('comments/edit.ejs', {
+			comment: foundComment 
+		});
+	} catch (err) {
+		res.send(err)
+	}	
+})
+
+//// COMMENT EDIT GET ROUTE ////
 
 //// CREATE/POST ROUTE ///// 
 router.post('/', async (req, res) => {
