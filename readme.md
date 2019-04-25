@@ -5,10 +5,9 @@
 ## GOALS 4-25-19 
 
 MORNING
-- Set up the complete TOOLS MODEL
-- Test routes to all possible templates from the TOOLS MODEL
+- Set up the complete TOOLS MODEL **DONE**
+- Test routes to all possible templates from the TOOLS MODEL **DONE**
 - Make the EJS partials
-
 
 
 - Ask them what to do next 
