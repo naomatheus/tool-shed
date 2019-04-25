@@ -36,7 +36,9 @@ router.get('/', async (req, res) => {
 });
 /// END OF INDEX GET ROUTE ///
 
-/// SHOW GET ROUTE ///x
+
+
+/// SHOW GET ROUTE ///
 router.get('/:id', async (req, res) => {
 	try{
 		const foundUser = await User.findById({_id: req.params.id});
@@ -88,7 +90,7 @@ router.post('/', async (req, res, next) => {
 /// EDIT PUT ROUTE ///
 router.put('/:id', async (req, res) => {
 	try{
-		const updatedUser = await User.FindByIdAndUpdate(req.params.id, req.body, {new: true});
+		const updatedUser = await User.findByIdAndUpdate(req.params.id, req.body, {new: true});
 		console.log('==============');
 		console.log(`${updatedUser} <========== this user has been updated in the USER PUT ROUTE!!!`);
 		console.log('==============');
@@ -109,10 +111,8 @@ router.delete('/:id', async (req, res) => {
 	}catch(err){
 		res.send(err);
 	}
-
 });
 /// END OF DELETE ROUTE ////
-
 
 
 
