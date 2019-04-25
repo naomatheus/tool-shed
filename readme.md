@@ -7,13 +7,13 @@
 MORNING
 - Set up the complete TOOLS MODEL **DONE**
 - Test routes to all possible templates from the TOOLS MODEL **DONE**
-- Make the EJS partials
+- Make the EJS partials **DONE**
 
 
 - Ask them what to do next 
 - Get the scaffold of the User model up and sort of going 
-- Decide how we think we wanna style it 
--- set up static files folder 
+- Decide how we think we wanna style it **WORKING**
+-- set up static files folder **DONE**
 
 
 
@@ -56,3 +56,5 @@ MORNING
 - NEW TOOL CREATE Page offers some explanation of the benefits of using the service, general considerations, etiquette, etc.
 - TOOL INDEX limits the number of tools displayed and allows user to cycle to truncated pages
 - User can see image of tool (uploaded by the user)
+- The user who post a comment has their name attached to the comment they posted (you can see who posted which comments)
+- if a non-logged in user posts comments, then they show as "Anonymous"

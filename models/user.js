@@ -1,13 +1,15 @@
 const mongoose = require('mongoose');
 
 const connectionString = 'mongodb://localhost/toolshed';
+const Tool = require('./tool.js')
 
 const userSchema = new mongoose.Schema({
-	contactInfo: [name: String, email: String],
-	//tool object pushed via toolSchema
+	toolAvailable: Boolean,
+	contactInfo: [{name: String, email: String}],
+	//tool documents from MongoDB will pushed via reference to "Tool" collection in MongoDB
+	toolDoc: [{type: mongoose.Schema.Types.ObjectId, ref:'Tool'}]
+	// I named this toolDoc, so semantically the Tool documents are being pushed into the User documents that create them - M
 });
-
-/////^^^ NOT SURE ABOUT THE SYNTAX HERE ^^^//////
 
 console.log("");
 console.log("");
@@ -22,3 +24,5 @@ console.log("");
 console.log("");
 console.log("THIS IS THE user MODEL:");
 console.log(User);
+
+module.exports = User;
