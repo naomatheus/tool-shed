@@ -60,7 +60,12 @@ router.post('/register', async (req, res, next) => {
 router.post('/login', async (req, res, next) => { 
 	try{ 
 		const foundUser = await User.findOne({'userName': req.body.username});
-		if(foundUser = req.body.userName) { //console.log(bcrypt.compareSync(req.body.password, foundUser.password) === true);
+
+		if (!foundUser) {
+			res.redirect('/auth/register')
+		}
+
+		if (foundUser === req.body.userName) { //console.log(bcrypt.compareSync(req.body.password, foundUser.password) === true);
 			////// HAVING ISSUES HERE - DONT' THINK THE ROUTE IS EVER HITTING THE BLOCK BELOW///////
 			if(bcrypt.compareSync(req.body.password, foundUser.password) === true) {
 				req.session.message = '';
