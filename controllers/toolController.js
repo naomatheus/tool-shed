@@ -9,6 +9,7 @@ const fs 				= require('fs');
 
 /// require tools model ///
 const Tool = require('../models/tool.js');
+const User = require('../models/user.js')
 /// require tools model ///
 
 /// tools new route ///
@@ -36,21 +37,6 @@ router.get('/', async (req, res) => {
 })	
 //// tools index route /// 
 
-/// tool image serving route ///
-router.get('/:id/picture', async (req, res, next) => {
-		try {
-			const foundTool = await Tool.findById(req.params.id);
-			console.log("\n\nhere's foundTool");
-			console.log(foundTool);	
-			// console.log( "<<<--- these tools should have their images displayed");
-			res.set('Content-Type', foundTool.toolImage.contentType)
-			res.send(foundTool.toolImage.data)
-		}
-		catch(err) {
-			next(err)
-		}
-})
-/// tool index image get route ///
 
 //// tool index display gotten image route ///
 
@@ -71,6 +57,21 @@ router.get('tools/:id', async (req, res) => {
 
 //// tool index display gotten image route ///
 
+/// tool image serving route ///
+router.get('/:id/picture', async (req, res, next) => {
+		try {
+			const foundTool = await Tool.findById(req.params.id);
+			console.log("\n\nhere's foundTool");
+			console.log(foundTool);	
+			// console.log( "<<<--- these tools should have their images displayed");
+			res.set('Content-Type', foundTool.toolImage.contentType)
+			res.send(foundTool.toolImage.data)
+		}
+		catch(err) {
+			next(err)
+		}
+})
+/// tool index image get route ///
 
 
 //// tools show route///
@@ -116,10 +117,16 @@ router.post('/', upload.single('imageData'), async (req, res, next) => {
 	console.log("\nhere is req.body:");
 	console.log(req.body);
 	try{
+
+
+		//// maybe flip this so that the Tool.create() is created at the bottom of this block, so that properties are assigned first before the tool is created as a doc 
+
 		const createdTool = await Tool.create(req.body);
 		console.log('=====================');
 		console.log(`tool has been created in the TOOL CREATE POST ROUTE!!! here it is`);
 		console.log(createdTool);
+		console.log('__________________');
+		console.log('this is createdTool.owner', createdTool.owner);
 		console.log('=====================');
 
 		console.log('====this is req.file=================');
@@ -136,8 +143,19 @@ router.post('/', upload.single('imageData'), async (req, res, next) => {
 		img.data = fs.readFileSync(filePath);
 
 		createdTool.toolImage = img
+		console.log('THIS IS THE USER ID FOR THIS SESSION___________________');
+		console.log(req.session.usersDbId);
+		console.log('THIS IS THE USER ID FOR THIS SESSION___________________');
+		const foundUser = await User.findOne(req.session.usersDbId)
+		console.log('THIS IS FOUND USER BY THE QUERY');
 
+		console.log(foundUser);
+		console.log('THIS IS FOUND USER BY THE QUERY');
+		/// it doesn't like this owner business
+		createdTool.owner = foundUser;	
 		await createdTool.save();
+
+		console.log(createdTool);
 
 		// / saves everything to DB
 		res.redirect('/tools');
