@@ -59,6 +59,7 @@ router.post('/register', async (req, res, next) => {
 /// POST USER LOGIN ROUTE
 /// make the form in login.ejs make a request to this
 router.post('/login', async (req, res, next) => {
+<<<<<<< HEAD
 	try{
 		const foundUser = await User.findOne({'userName': req.body.userName});
 		if (foundUser === req.body.userName){
@@ -111,6 +112,31 @@ router.post('/login', async (req, res, next) => {
 // 			}
 // 	// setting req.session property called username that is equal to the username from the login form
 // 	}}};
+=======
+	try {
+		const foundUser = await User.findOne({'userName': req.body.username});
+		if (!foundUser) {
+			res.redirect('/auth/register')
+		} else if (foundUser) {
+			const passwordMatch = bcrypt.compareSync(req.body.password, foundUser.password)
+			if (passwordMatch === true) {
+				req.session.message = '';
+				req.session.logged = true;
+				req.session.username = req.body.username;
+				req.session.usersDbId = foundUser._id;
+				console.log(`${req.session} <===== SUCCESSFUL LOGIN!`);
+				res.redirect('/tools') 
+			} else if (passwordMatch === false) {
+				req.session.message = "Username or password is incorrect";
+				res.redirect('/auth/login')
+			}
+		}
+
+	} catch (err) {
+		res.send(err)
+	}
+})
+>>>>>>> master
 /// END OF POST USER LOGIN ROUTE
 
 
