@@ -16,25 +16,30 @@ const toolSchema = new mongoose.Schema({
 		type: mongoose.Schema.Types.ObjectId, 
 		ref: 'User'
 		/// WHEN CREATING TOOL Tool.owner = req.session.user
-	}
-////, image: {data:Buffer, contentType:String, description: String } /// this will probably be where the images get uploaded
+	},
+ 	toolImage: { 
+ 		imageTitle: String,
+ 		data: Buffer, 
+ 		contentType: String,
+ 		imageDescription: String 
+ 	} 
 });
 
 
 
-console.log("");
-console.log("");
-console.log("");
-console.log("THIS IS THE TOOLS SCHEMA:");
-console.log(toolSchema);
+// console.log("");
+// console.log("");
+// console.log("");
+// console.log("THIS IS THE TOOLS SCHEMA:");
+// console.log(toolSchema);
 
 const Tool = mongoose.model('Tool', toolSchema);
 
-console.log("");
-console.log("");
-console.log("");
-console.log("THIS IS THE TOOLS MODEL:");
-console.log(Tool);
+// console.log("");
+// console.log("");
+// console.log("");
+// console.log("THIS IS THE TOOLS MODEL:");
+// console.log(Tool);
 
 
 

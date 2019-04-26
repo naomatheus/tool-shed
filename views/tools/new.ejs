@@ -7,13 +7,32 @@
 <body>
 	<h2>Tools New/Create Page</h2>
 
-		<form action="/tools" method="POST">
+		<form action="/tools" enctype='multipart/form-data' method="POST">
 			<br>
 			Time Posted: <input type="date" name="timePosted" placeholder='format: dd/mm/yyyy'/>
 			<br>
 			Type of Tool: <input type="text" name="typeOfTool"/>
 			<br>
-			Description: <input type="text" name="description">
-			<button type="submit">POST TOOL</button>
-		</form>
+			Description: <input type="text" name="description"><br/>
+
+
+			Upload Image: <input type="file" name="imageData"><br/>
+			Title of Image: <input type="text" name="imageTitle"><br/>
+			Image description: <input type="text" name="imageDescription" />
+
+
+
+			<button>POST TOOL</button>
+		</form><br/>
+
+<!-- INSTEAD ADDING IMAGE DATA STUFF TO SAME FORM -->
+
+<!-- Form specifically for uploading tool images -->
+		<!-- <form class="imageUploadForm" action='/tools' method='POST' enctype='multipart/form-data'> -->
+			<!-- Upload Image: <input type="file" name="imageData"><br/>
+			Title of Image: <input type="text" name="imageTitle"><br/>
+			Image description: <input type="text" name="imageDescription"> -->
+		<!-- </form><br/> -->
+		<!-- Form specifically for uploading tool images -->
+
 <%- include ../partials/footer.ejs %>
