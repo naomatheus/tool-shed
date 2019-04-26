@@ -6,7 +6,7 @@
 ## GOALS 4-26-19 
 
 
-- Get all EJS partials into comment and users EJS templates
+~ - Get all EJS partials into comment and users EJS templates ~
 - do some styling stuff
 
 MORNING 
@@ -15,7 +15,7 @@ MORNING
 - Get information/guidance on all of the hard things 
 Hard things:
 - Populate()
-- AuthController
+- AuthController (using Jim's video after 1:21:00 use it to prevent the homepage from appearing without req.session.logged being true)
 - Bcrypt (goes in the authcontroller)
 - Images and buffer data types 
 - include sessions (happens in the server) (session middleware) (it gets handled by the authcontroller/bcrypt)
@@ -25,7 +25,7 @@ Hard things:
 Afternoon
 - think about the user flow 
 - do some bootstrap stuff
--
+- Add a logout button to the nav bar if they're logged in. Can be some EJS logic (if logged in, show logout; else show login and register)
 
 - Decide how we think we wanna style it **WORKING**
 

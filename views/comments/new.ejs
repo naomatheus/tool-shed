@@ -1,9 +1,8 @@
-<!DOCTYPE html>
-<html>
-<head>
-	<title>Comment New created form page</title>
-</head>
-<body>
+
+	
+<%- include ../partials/header.ejs %>
+<title>Comments New Page</title>
+
 
 	<h1>Comment new page</h1>
 	<form action='/comments' method='POST'>
@@ -12,5 +11,5 @@
 		<input type="text" name="commentAuthor">
 		<button type='submit'>Post Comment</button>
 	</form>
-</body>
-</html>
+
+<%- include ../partials/footer.ejs %>
