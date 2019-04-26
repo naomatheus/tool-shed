@@ -5,10 +5,10 @@ const ejs 				= require('ejs');
 const bodyParser 		= require('body-parser');
 const methodOverride 	= require('method-override');
 const pathfinderUI 		= require('pathfinder-ui');
-const session = require('express-session');
-const multer  = require('multer')
-const upload = multer({ dest: 'uploads/' });
-const fs = require('fs');
+const session 			= require('express-session');
+const multer  			= require('multer')
+const upload 			= multer({ dest: 'uploads/' });
+const fs 				= require('fs');
 
 ////// node modules //// 
 
