@@ -1,7 +1,7 @@
 const mongoose = require('mongoose');
 
 const connectionString = 'mongodb://localhost/toolshed';
-const Tool = require('./tool.js')
+const Tool = require('./tool.js');
 
 const userSchema = new mongoose.Schema({
 	// toolAvailable: Boolean,
