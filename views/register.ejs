@@ -2,10 +2,10 @@
 <title>Register For Toolshed</title>
 	<h1>Register For Toolshed</h1>
 
-	<form>
-		<input type="" name="username"><br/>
-		<input type="" name="password"><br/>
-		<input type="" name="email"><br/>
+	<form action="/auth/register" method="POST">
+		<input type="" name="userName" placeholder="username"><br/>
+		<input type="password" name="password" placeholder="password"><br/>
+		<input type="email" name="email" placeholder="email"><br/>
 		<button type='submit'>Submit Registration</button>
 	</form>
 

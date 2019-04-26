@@ -6,7 +6,7 @@ const bodyParser 		= require('body-parser');
 const ejs 				= require('ejs');
 const pathfinderUI 		= require('pathfinder-ui');
 const User 				= require('../models/user.js');
-const brcypt 			= require('bcryptjs');
+const bcrypt 			= require('bcryptjs');
 
 
 /// MAKE A login route that will simulate or actually be a user login
@@ -19,34 +19,52 @@ router.get('/login', (req, res) => {
 
 /// REGISTRATION GET USER ROUTE
 router.get('/register', (req, res) => {
-		res.render('register.ejs')	
+		res.render('register.ejs', {
+			message: req.session.message
+		})	
 });
 /// END OF REGISTRATION GET USER ROUTE
 
-router.post('/register', async (req, res) => {
-	const password = req.body.password;
-	const passwordHash = bcrypt.hashSync(password, bcrypt.genSaltSync(10));
-	const userDbEntry = {};
-	userDbEntry.username = req.body.username;
-	userDbEntry.password = passwordHash;
-	try{
+/// REGISTRATION POST USER ROUTE
+router.post('/register', async (req, res, next) => {
+	const queriedUserName = User.findOne(req.body.userName);
+	if (queriedUserName === req.body.userName){
+		console.log(`${queriedUserName} ALREADY EXISTS!!!`);
+		res.redirect('/auth/login');
+	} else {
+		const password = req.body.password;
+		const passwordHash = bcrypt.hashSync(password, bcrypt.genSaltSync(10));
+		const userDbEntry = {};
+		userDbEntry.username = req.body.userName;
+		userDbEntry.password = passwordHash;
+	 try{	
 		const createdUser = await User.create(userDbEntry);
+		console.log("=================");
+		console.log(`${createdUser} <======= user has been created in REGISTER POST USER ROUTE`);
+		console.log("=================");
+		console.log(req.session);
 		req.session.logged = true;
 		req.session.usersDbId = createdUser._id;
-		res.redirect('/users');  ///not sure about redirect site
-	}catch(err){}
-	res.send(err);
+		res.redirect('/auth/login');  ///not sure about redirect site
+	}catch(err){
+		next(err)
+		res.send(err);
+	}}
 });
+/// END OF REGISTRATION POST USER ROUTE
 
 
+
+/// LOGIN POST USER ROUTE
 /// make the form in login.ejs make a request to this
-router.post('/login', async (req, res) => {
-	try{
-		const foundUser = await User.findOne({'username': req.body.username});
-		if(foundUser){
-			if(bcrypt.compareSync(req.body.password, foundUser.password) === true){
+router.post('/login', async (req, res, next) => { 
+	try{ 
+		const foundUser = await User.findOne({'userName': req.body.username});
+		if(foundUser) { //console.log(bcrypt.compareSync(req.body.password, foundUser.password) === true);
+			if(bcrypt.compareSync(req.body.password, foundUser.password) === true) {
 				req.session.message = '';
 				req.session.logged = true;
+				req.session.username = req.body.username;
 				req.session.usersDbId = foundUser._id;
 				console.log(`${req.session} <===== SUCCESSFUL LOGIN!`);
 				res.redirect('/tools') ///not sure about redirect site
@@ -54,25 +72,26 @@ router.post('/login', async (req, res) => {
 				req.session.message = "Username or password is incorrect";
 				res.redirect('/auth/login')//
 			}
-		}else {
-			req.session. message = "Username or passowrd is incorrect"
-			res.redirect('/auth/login');//
+		// }else {
+		// 	req.session. message = "Username or password is incorrect"
+		// 	res.redirect('/auth/login');//
 		}
 	} catch(err){
+		next(err);
 		res.send(err);
+		// logged in property
+		req.session.logged = false //default value is false and will be changed to true by this request;
+		res.redirect('/auth/login')/// redirect to the homepage
 	}
 	// setting req.session property called username that is equal to the username from the login form
-	req.session.username = req.body.username;
-	// logged in property
-	req.session.logged = false //default value is false and will be changed to true by this request;
-	res.redirect('/home')/// redirect to the homepage
 });
+/// END OF LOGIN POST USER ROUTE
 
 
 
 
-
-/// will pronbably to ASYNC both of these ROUTES ^^^^^^ and BELOW ______
+/// will probably to ASYNC both of these ROUTES ^^^^^^ and BELOW ______
+/// GET LOGOUT USER ROUTE (DESTROY)
 router.get('/logout', (req, res) => {
 	req.session.destroy((err) => {
 		if (err) {
@@ -82,6 +101,6 @@ router.get('/logout', (req, res) => {
 		}
 	})	
 });
-
+/// END OF LOGOUT USER ROUTE (DESTROY)
 
 module.exports = router;
