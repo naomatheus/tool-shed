@@ -3,12 +3,31 @@
 ## Find the tools you need....instantly
 
 
+## GOALS 4-26-19 
 
 
+- Get all EJS partials into comment and users EJS templates
+- do some styling stuff
 
+MORNING 
+- Set up Auth Controller & Login/Register EJS Templates
+- 
+- Get information/guidance on all of the hard things 
+Hard things:
+- Populate()
+- AuthController
+- Bcrypt (goes in the authcontroller)
+- Images and buffer data types 
+- include sessions (happens in the server) (session middleware) (it gets handled by the authcontroller/bcrypt)
+-- each time you save a change in the code, it resets the server. and that destroys the session and you have to login to start new session
+-- make sure you have a new link tied to your login page when you're debugging after having sessions
 
+Afternoon
+- think about the user flow 
+- do some bootstrap stuff
+-
 
-
+- Decide how we think we wanna style it **WORKING**
 
 
 ## GOALS 4-25-19 
@@ -24,7 +43,7 @@ MORNING
 ~-- set up static files folder **DONE**~
 
 
-- Decide how we think we wanna style it **WORKING**
+
 
 
 ### User Stories

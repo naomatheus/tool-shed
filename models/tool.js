@@ -10,13 +10,14 @@ const toolSchema = new mongoose.Schema({
 	toolAvailable: Boolean,
 	comments: [{
 		type: mongoose.Schema.Types.ObjectId,
-		ref: 'Comment'
+		ref: 'Comment'// WHEN A NEW COMMENT GETS CREATED, IT WILL ALSO BE PUSHED INTO THE TOOL'S COMMENT ARRAY
 	}],
 	owner: {
 		type: mongoose.Schema.Types.ObjectId, 
 		ref: 'User'
+		/// WHEN CREATING TOOL Tool.owner = req.session.user
 	}
-
+////, image: {data:Buffer, contentType:String, description: String } /// this will probably be where the images get uploaded
 });
 
 
