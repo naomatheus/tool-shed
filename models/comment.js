@@ -17,19 +17,19 @@ const commentSchema = new mongoose.Schema({
 
 
 
-console.log("");
-console.log("");
-console.log("");
-console.log("THIS IS THE COMMENT SCHEMA:");
-console.log(commentSchema);
+// console.log("");
+// console.log("");
+// console.log("");
+// console.log("THIS IS THE COMMENT SCHEMA:");
+// console.log(commentSchema);
 
 const Comment = mongoose.model('Comment', commentSchema);
 
-console.log("");
-console.log("");
-console.log("");
-console.log("THIS IS THE COMMENT MODEL:");
-console.log(Comment);
+// console.log("");
+// console.log("");
+// console.log("");
+// console.log("THIS IS THE COMMENT MODEL:");
+// console.log(Comment);
 
 module.exports = Comment;
 

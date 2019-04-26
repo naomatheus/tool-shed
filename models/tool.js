@@ -20,25 +20,26 @@ const toolSchema = new mongoose.Schema({
  	toolImage: { 
  		imageTitle: String,
  		data: Buffer, 
- 		// contentType: String,
- 		imageDescription: String } 
+ 		contentType: String,
+ 		imageDescription: String 
+ 	} 
 });
 
 
 
-console.log("");
-console.log("");
-console.log("");
-console.log("THIS IS THE TOOLS SCHEMA:");
-console.log(toolSchema);
+// console.log("");
+// console.log("");
+// console.log("");
+// console.log("THIS IS THE TOOLS SCHEMA:");
+// console.log(toolSchema);
 
 const Tool = mongoose.model('Tool', toolSchema);
 
-console.log("");
-console.log("");
-console.log("");
-console.log("THIS IS THE TOOLS MODEL:");
-console.log(Tool);
+// console.log("");
+// console.log("");
+// console.log("");
+// console.log("THIS IS THE TOOLS MODEL:");
+// console.log(Tool);
 
 
 

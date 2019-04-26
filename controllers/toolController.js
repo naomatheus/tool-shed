@@ -1,12 +1,9 @@
 const express 			= require('express');
 const mongoose 			= require('mongoose');
 const router 			= express.Router();
-const methodOverride 	= require('method-override');
-const bodyParser 		= require('body-parser');
-const ejs 				= require('ejs');
-const pathfinderUI 		= require('pathfinder-ui');
+// const pathfinderUI 		= require('pathfinder-ui');
 const multer 			= require('multer');
-const upload 			= multer({dest: './uploads/'});
+const upload 			= multer({dest: './uploads'});
 const fs 				= require('fs');	
 /// node modules
 
@@ -76,37 +73,50 @@ router.get('/:id/edit', async (req, res) => {
 /// END OF EDIT GET ROUTE ///
 
 /// START OF CREATE/POST ROUTE ///
-router.post('/', async (req, res, next) => { console.log("HEY HI TOOLS POST HELLO")
+router.post('/', upload.single('imageData'), async (req, res, next) => { 
+	console.log("HEY HI TOOLS POST HELLO")
+	console.log("\nhere is req.body:");
+	console.log(req.body);
 	try{
 		const createdTool = await Tool.create(req.body);
 		console.log('=====================');
-		console.log(`${createdTool} <===== tool has been created in the TOOL CREATE POST ROUTE!!!`);
+		console.log(`tool has been created in the TOOL CREATE POST ROUTE!!! here it is`);
+		console.log(createdTool);
 		console.log('=====================');
 
-		console.log('=====================');
-		console.log(`${req.file} <===== this is req.file`);
-		console.log('=====================');
+		console.log('====this is req.file=================');
+		console.log(req.file);
+		// console.log(`${req.file} <===== t`);
+		// console.log('=====================');
 
-		const filePath = './' +req.file.path
-
-		createdTool.toolImage.imageTitle = req.body.toolImage.imageTitle;
-
-		createdTool.toolImage.data = req.body.toolImage.data;
-		createdTool.toolImage.data = fs.readFileSync(filePath);
+		const img = {}
+		img.imageTitle = req.body.imageTitle;
+		img.imageDescription = req.body.imageDescription;
+		img.contentType = req.file.mimetype
 		// filepath leads to /uploads according to multer set up SET AS './uploads/' because toolController is nested once 
+		const filePath = './' + req.file.path
+		img.data = fs.readFileSync(filePath);
 
-		createdTool.toolImage.imageDescription = req.body.toolImage.imageDescription;
+		createdTool.toolImage = img
 
 		await createdTool.save();
-		/// saves everything to DB
 
+		// / saves everything to DB
 		res.redirect('/tools');
 
 	} catch (err){
-		next(`${err} <====== THERE HAS BEEN AN ERROR!!!`)
+		next(err) 
+		console.log(`<====== THERE HAS BEEN AN ERROR!!!`);
 	}
 });
 /// START OF CREATE/POST ROUTE ///
+
+/// TOOL IMAGE ROUTE ///
+// router.post('/', upload.single('imageData'), async (req, res, next) => {
+			
+// 		})
+
+/// TOOL IMAGE ROUTE ///
 
 /// START OF EDIT PUT ROUTE ///
 router.put('/:id', async (req, res) => {
@@ -123,8 +133,6 @@ router.put('/:id', async (req, res) => {
 	}
 });
 /// END OF EDIT PUT ROUTE ///
-
-
 
 /// TOOLS DELETE ROUTE ///
 router.delete('/:id', async (req, res) => {
