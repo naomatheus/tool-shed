@@ -6,7 +6,7 @@ const bodyParser 		= require('body-parser');
 const ejs 				= require('ejs');
 const pathfinderUI 		= require('pathfinder-ui');
 const multer 			= require('multer');
-const upload 			= multer({dest: 'uploads/'});
+const upload 			= multer({dest: './uploads/'});
 const fs 				= require('fs');	
 /// node modules
 
@@ -76,16 +76,34 @@ router.get('/:id/edit', async (req, res) => {
 /// END OF EDIT GET ROUTE ///
 
 /// START OF CREATE/POST ROUTE ///
-router.post('/', async (req, res) => { console.log("HEY HI TOOLS POST HELLO")
+router.post('/', async (req, res, next) => { console.log("HEY HI TOOLS POST HELLO")
 	try{
 		const createdTool = await Tool.create(req.body);
 		console.log('=====================');
 		console.log(`${createdTool} <===== tool has been created in the TOOL CREATE POST ROUTE!!!`);
 		console.log('=====================');
+
+		console.log('=====================');
+		console.log(`${req.file} <===== this is req.file`);
+		console.log('=====================');
+
+		const filePath = './' +req.file.path
+
+		createdTool.toolImage.imageTitle = req.body.toolImage.imageTitle;
+
+		createdTool.toolImage.data = req.body.toolImage.data;
+		createdTool.toolImage.data = fs.readFileSync(filePath);
+		// filepath leads to /uploads according to multer set up SET AS './uploads/' because toolController is nested once 
+
+		createdTool.toolImage.imageDescription = req.body.toolImage.imageDescription;
+
+		await createdTool.save();
+		/// saves everything to DB
+
 		res.redirect('/tools');
 
 	} catch (err){
-		res.send(`${err} <====== THERE HAS BEEN AN ERROR!!!`)
+		next(`${err} <====== THERE HAS BEEN AN ERROR!!!`)
 	}
 });
 /// START OF CREATE/POST ROUTE ///

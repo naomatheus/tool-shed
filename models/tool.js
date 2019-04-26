@@ -18,9 +18,10 @@ const toolSchema = new mongoose.Schema({
 		/// WHEN CREATING TOOL Tool.owner = req.session.user
 	},
  	toolImage: { 
+ 		imageTitle: String,
  		data: Buffer, 
- 		contentType: String,
- 		description: String } 
+ 		// contentType: String,
+ 		imageDescription: String } 
 });
 
 
