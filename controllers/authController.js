@@ -48,7 +48,7 @@ router.post('/register', async (req, res, next) => {
 		req.session.usersDbId = createdUser._id;
 		res.redirect('/auth/login');  ///not sure about redirect site
 	}catch(err){
-		next(err)
+		next(err);
 		res.send(err);
 	}}
 });
@@ -78,6 +78,7 @@ router.post('/login', async (req, res, next) => {
             }
         }
     } catch (err) {
+    	next(err);
         res.send(err)
     }
 });
@@ -86,17 +87,20 @@ router.post('/login', async (req, res, next) => {
 
 
 
-/// will probably to ASYNC both of these ROUTES ^^^^^^ and BELOW ______
+
 /// GET LOGOUT USER ROUTE (DESTROY)
-router.get('/logout', (req, res) => {
+router.get('/logout', (req, res, next) => {
 	req.session.destroy((err) => {
 		if (err) {
+			next(err)
 			res.send(err)
 		} else {
-			res.redirect('/login')
+			res.redirect('/auth/login')
 		}
 	})	
 });
 /// END OF LOGOUT USER ROUTE (DESTROY)
+
+
 
 module.exports = router;
