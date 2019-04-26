@@ -59,84 +59,28 @@ router.post('/register', async (req, res, next) => {
 /// POST USER LOGIN ROUTE
 /// make the form in login.ejs make a request to this
 router.post('/login', async (req, res, next) => {
-<<<<<<< HEAD
-	try{
-		const foundUser = await User.findOne({'userName': req.body.userName});
-		if (foundUser === req.body.userName){
-			// console.log(bcrypt.compaySync(req.body.password, foundUser.password) === true);
-			if (!foundUser){
-				res.redirect('auth/register')
-			}
-		}if (foundUser === req.body.userName){
-			// console.log(bcrypt.compareSync(req.body.passsword, foundUser.password) === true);
-		}if (bcrypt.compareSync(req.body.password, foundUser.password) === true){
-			req.session.message = '';
-			req.session.logged = true;
-			req.session.username = req.body.userName;
-			req.session.usersDbId = foundUser._id;
-			console.log(`${req.session} <===== SUCCESSFUL LOGIN!`);
-			res.redirect('/tools')
-		}
-	}
-})
-// router.post('/login', async (req, res, next)=> { 
-// 	try{ 
-// 		const foundUser = await User.findOne({'userName': req.body.username});
-// 		if(foundUser === req.body.userName) {
-// 		 // console.log(bcrypt.compareSync(req.body.password, foundUser.password) === true);
-
-// 			if (!foundUser) {
-// 				res.redirect('/auth/register')
-// 			}
-// 		if (foundUser === req.body.userName) { //console.log(bcrypt.compareSync(req.body.password, foundUser.password) === true);
-// 			////// HAVING ISSUES HERE - DONT' THINK THE ROUTE IS EVER HITTING THE BLOCK BELOW///////
-// 			if(bcrypt.compareSync(req.body.password, foundUser.password) === true) {
-// 				req.session.message = '';
-// 				req.session.logged = true;
-// 				req.session.username = req.body.username;
-// 				req.session.usersDbId = foundUser._id;
-// 				console.log(`${req.session} <===== SUCCESSFUL LOGIN!`);
-// 				res.redirect('/tools') ///not sure about redirect site
-// 				} else {
-// 					req.session.message = "Username or password is incorrect";
-// 					res.redirect('/auth/login')//
-// 			} else {
-// 			req.session. message = "Username or password is incorrect"
-// 			res.redirect('/auth/login');//
-// 		}catch(err){
-// 			next(err);
-// 			res.send(err);
-// 		// logged in property
-// 		// req.session.logged = false //default value is false and will be changed to true by this request;
-// 		// res.redirect('/auth/login')/// redirect to the homepage
-// 			}
-// 	// setting req.session property called username that is equal to the username from the login form
-// 	}}};
-=======
-	try {
-		const foundUser = await User.findOne({'userName': req.body.username});
-		if (!foundUser) {
-			res.redirect('/auth/register')
-		} else if (foundUser) {
-			const passwordMatch = bcrypt.compareSync(req.body.password, foundUser.password)
-			if (passwordMatch === true) {
-				req.session.message = '';
-				req.session.logged = true;
-				req.session.username = req.body.username;
-				req.session.usersDbId = foundUser._id;
-				console.log(`${req.session} <===== SUCCESSFUL LOGIN!`);
-				res.redirect('/tools') 
-			} else if (passwordMatch === false) {
-				req.session.message = "Username or password is incorrect";
-				res.redirect('/auth/login')
-			}
-		}
-
-	} catch (err) {
-		res.send(err)
-	}
-})
->>>>>>> master
+    try {
+        const foundUser = await User.findOne({'userName': req.body.username});
+        if (!foundUser) {
+            res.redirect('/auth/register')
+        } else if (foundUser) {
+            const passwordMatch = bcrypt.compareSync(req.body.password, foundUser.password)
+            if (passwordMatch === true) {
+                req.session.message = '';
+                req.session.logged = true;
+                req.session.username = req.body.username;
+                req.session.usersDbId = foundUser._id;
+                console.log(`${req.session} <===== SUCCESSFUL LOGIN!`);
+                res.redirect('/tools') 
+            } else if (passwordMatch === false) {
+                req.session.message = "Username or password is incorrect";
+                res.redirect('/auth/login')
+            }
+        }
+    } catch (err) {
+        res.send(err)
+    }
+});
 /// END OF POST USER LOGIN ROUTE
 
 
