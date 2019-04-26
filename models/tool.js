@@ -16,8 +16,11 @@ const toolSchema = new mongoose.Schema({
 		type: mongoose.Schema.Types.ObjectId, 
 		ref: 'User'
 		/// WHEN CREATING TOOL Tool.owner = req.session.user
-	}
-////, image: {data:Buffer, contentType:String, description: String } /// this will probably be where the images get uploaded
+	},
+ 	toolImage: { 
+ 		data: Buffer, 
+ 		contentType: String,
+ 		description: String } 
 });
 
 

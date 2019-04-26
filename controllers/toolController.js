@@ -5,6 +5,9 @@ const methodOverride 	= require('method-override');
 const bodyParser 		= require('body-parser');
 const ejs 				= require('ejs');
 const pathfinderUI 		= require('pathfinder-ui');
+const multer 			= require('multer');
+const upload 			= multer({dest: 'uploads/'});
+const fs 				= require('fs');	
 /// node modules
 
 /// require tools model ///
