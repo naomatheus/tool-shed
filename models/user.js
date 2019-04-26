@@ -8,10 +8,7 @@ const userSchema = new mongoose.Schema({
 	userName: String, 
 	email: String,
 	password: String
-<<<<<<< HEAD
-=======
 
->>>>>>> 569fc8e49dcfd6479dc4ac2119f579c517d3ad84
 	//tool documents from MongoDB will pushed via reference to "Tool" collection in MongoDB
 	// I named this toolDoc, so semantically the Tool documents are being pushed into the User documents that create them - M
 });
