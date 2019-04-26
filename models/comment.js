@@ -16,7 +16,6 @@ const commentSchema = new mongoose.Schema({
 });
 
 
-
 // console.log("");
 // console.log("");
 // console.log("");
