@@ -55,12 +55,13 @@ router.post('/register', async (req, res, next) => {
 
 
 
-/// LOGIN POST USER ROUTE
+/// POST USER LOGIN ROUTE
 /// make the form in login.ejs make a request to this
 router.post('/login', async (req, res, next) => { 
 	try{ 
 		const foundUser = await User.findOne({'userName': req.body.username});
-		if(foundUser) { //console.log(bcrypt.compareSync(req.body.password, foundUser.password) === true);
+		if(foundUser = req.body.userName) { //console.log(bcrypt.compareSync(req.body.password, foundUser.password) === true);
+			////// HAVING ISSUES HERE - DONT' THINK THE ROUTE IS EVER HITTING THE BLOCK BELOW///////
 			if(bcrypt.compareSync(req.body.password, foundUser.password) === true) {
 				req.session.message = '';
 				req.session.logged = true;
@@ -72,20 +73,20 @@ router.post('/login', async (req, res, next) => {
 				req.session.message = "Username or password is incorrect";
 				res.redirect('/auth/login')//
 			}
-		// }else {
-		// 	req.session. message = "Username or password is incorrect"
-		// 	res.redirect('/auth/login');//
+		}else {
+			req.session. message = "Username or password is incorrect"
+			res.redirect('/auth/login');//
 		}
 	} catch(err){
 		next(err);
 		res.send(err);
 		// logged in property
-		req.session.logged = false //default value is false and will be changed to true by this request;
-		res.redirect('/auth/login')/// redirect to the homepage
+		// req.session.logged = false //default value is false and will be changed to true by this request;
+		// res.redirect('/auth/login')/// redirect to the homepage
 	}
 	// setting req.session property called username that is equal to the username from the login form
 });
-/// END OF LOGIN POST USER ROUTE
+/// END OF POST USER LOGIN ROUTE
 
 
 
@@ -97,7 +98,7 @@ router.get('/logout', (req, res) => {
 		if (err) {
 			res.send(err)
 		} else {
-			res.redirect('/auth/login')
+			res.redirect('/login')
 		}
 	})	
 });

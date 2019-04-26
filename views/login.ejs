@@ -1,13 +1,21 @@
 	<%- include ./partials/header.ejs %>
-	
-<title>Login For Toolshed</title>
+
+<!-- <title>Login To Toolshed</title> -->
 <h1>Login To Toolshed</h1>
 	<form action='/auth/login' method='POST'>
 		<input type="text" name="userName" placeholder='enter username'>
-		<input type="password" name="password" placeholder='enter your 6 digit password'>
-		<!-- <input type="email?" name=""> -->
+		<br>
+		<br>
+		<input type="password" name="password" placeholder='6 digit password'>
+		<br>
+		<br>
+<!-- 		<input type="email" name="email" placeholder="email">
+		<br>
+		<br> -->
 		<button type='submit'>Login</button>
 	</form>
+	<br>
+	<a = href="/auth/register">Don't Have an Account? Register Here!</a>
 
 	<small><%= message %></small>
 

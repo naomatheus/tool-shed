@@ -4,4 +4,9 @@ nav{
 	justify-content: space-around;
 }
 
+footer{
+	display: flex;
+	justify-content: center;
+}
+
 
