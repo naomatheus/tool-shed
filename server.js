@@ -5,6 +5,7 @@ const ejs 				= require('ejs');
 const bodyParser 		= require('body-parser');
 const methodOverride 	= require('method-override');
 const pathfinderUI 		= require('pathfinder-ui');
+const session = require('express-session');
 ////// node modules //// 
 
 /// require db ///
@@ -23,6 +24,12 @@ app.use('/pathfinder', function(req, res, next){
     next()
 }, pathfinderUI.router)
 
+app.use(session({
+	secret: 'It is a huuuge secret',
+	resave: false,
+	saveUninitialized: false
+}))
+
 /// MIDDLEWARE ///
 
 
@@ -35,10 +42,13 @@ const toolController = require('./controllers/toolController.js');
 
 const userController = require('./controllers/userController.js');
 
+const authController = require('./controllers/authController.js')
+
 // require controllers 
 app.use('/users', userController);
 app.use('/tools', toolController)
 app.use('/comments', commentController)
+app.use('/auth', authController);
 
 /// listener
 
