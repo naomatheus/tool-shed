@@ -16,6 +16,7 @@ MORNING
 Hard things:
 - Populate()
 - AuthController (using Jim's video after 1:21:00 use it to prevent the homepage from appearing without req.session.logged being true)
+
 - Bcrypt (goes in the authcontroller)
 
 - Images and buffer data types 

@@ -1,16 +1,18 @@
 <%- include ../partials/header.ejs %>
 <title>Tools Index Page</title>
 	<h2>Tools Index page</h2>
-		<% tools.forEach((tools) => { %>
+		<% tools.forEach((tool) => { %>
 	<ul>
-			<li><a href='/tools/<%=tools._id%>'><%=tools.typeOfTool%></li></a>
-				<li><%=tools.timePosted%></li>  
-				<li><%=tools.typeOfTool%></li> 
-				<li><%=tools.description%></li> 
-	</ul>
-	<br>
+			<li><a href='/tools/<%=tool._id%>'><%=tool.typeOfTool%></li></a>
+			<li><%=tool.timePosted%></li>  
+			<li><%=tool.typeOfTool%></li> 
+			<li><%=tool.description%></li> 
+			<li>AN IMAGE OF THE TOOL HERE<%=tool.toolImage%></li>
+			<li><img src='/tools/<%=tool._id%>/picture' /></li>
+			<br>
 
 		<% })%>
+	</ul>
 
 
 <%- include ../partials/footer.ejs %>

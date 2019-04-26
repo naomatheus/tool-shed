@@ -22,6 +22,7 @@ router.get('/', async (req, res) => {
 	try {
 
 		const foundTools = await Tool.find({});
+		// tool should be displayed with it's image in the tools index
 		console.log('====================');
 		console.log(`${foundTools} <===== has been found in the TOOL INDEX GET ROUTE`);
 		console.log('====================');
@@ -34,6 +35,43 @@ router.get('/', async (req, res) => {
 	}
 })	
 //// tools index route /// 
+
+/// tool image serving route ///
+router.get('/:id/picture', async (req, res, next) => {
+		try {
+			const foundTool = await Tool.findById(req.params.id);
+			console.log("\n\nhere's foundTool");
+			console.log(foundTool);	
+			// console.log( "<<<--- these tools should have their images displayed");
+			res.set('Content-Type', foundTool.toolImage.contentType)
+			res.send(foundTool.toolImage.data)
+		}
+		catch(err) {
+			next(err)
+		}
+})
+/// tool index image get route ///
+
+//// tool index display gotten image route ///
+
+router.get('tools/:id', async (req, res) => {
+	try {
+		const displayedToolImage = Tool.findById(req.params.id.toolImage)
+		console.log(displayedToolImage, "this image should be displayed ");
+		// res.render('toolImage', {
+		// 	displayedToolImage : req.params.id.toolImage
+		// })
+	} 
+	catch (err) {
+		res.send(err)
+	}
+})
+
+
+
+//// tool index display gotten image route ///
+
+
 
 //// tools show route///
 router.get('/:id', async (req, res) => {
