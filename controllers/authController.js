@@ -12,6 +12,12 @@ router.get('/login', (req, res) => {
 	res.render('login.ejs');
 })
 
+/// get registration page
+router.get('/register', (req, res) => {
+		res.render('register.ejs')	
+})
+/// get registration page
+
 /// make the form in login.ejs make a request to this
 router.post('/login', (req, res) => {
 	// setting req.session property called username that is equal to the username from the login form
@@ -21,6 +27,8 @@ router.post('/login', (req, res) => {
 	res.redirect('/home')/// redirect to the homepage
 
 });
+
+
 
 
 /// will pronbabyl to ASYNC both of these ROUTES ^^^^^^ and BELOW ______

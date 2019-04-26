@@ -6,7 +6,7 @@
 ## GOALS 4-26-19 
 
 
-- Get all EJS partials into comment and users EJS templates
+~ - Get all EJS partials into comment and users EJS templates ~
 - do some styling stuff
 
 MORNING 

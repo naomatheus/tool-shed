@@ -1,9 +1,7 @@
-<!DOCTYPE html>
-<html>
-<head>
-	<title>Users Show Page</title>
-</head>
-<body>
+
+	
+<%- include ../partials/header.ejs %>
+<title>Users Show Page</title>
 	<h1>Users Show Page</h1>
 
 	<h2><%=user.userName%>'s Show Page</h2>
@@ -19,5 +17,4 @@
 	</form>
 		<br>
 		<a href="/users/<%=user._id%>/edit">EDIT USER</a>
-</body>
-</html>
+<%- include ../partials/footer.ejs %>
