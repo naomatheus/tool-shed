@@ -93,10 +93,14 @@ router.get('/logout', (req, res) => {
 		if (err) {
 			res.send(err)
 		} else {
-			res.redirect('/login')
+			res.redirect('/auth/login')
 		}
 	})	
 });
 /// END OF LOGOUT USER ROUTE (DESTROY)
+
+
+
+
 
 module.exports = router;
