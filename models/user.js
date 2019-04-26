@@ -6,12 +6,9 @@ const Tool = require('./tool.js')
 const userSchema = new mongoose.Schema({
 	// toolAvailable: Boolean,
 	userName: String, 
-<<<<<<< HEAD
-	email: String
-=======
 	email: String,
 	password: String
->>>>>>> master
+
 	//tool documents from MongoDB will pushed via reference to "Tool" collection in MongoDB
 	// I named this toolDoc, so semantically the Tool documents are being pushed into the User documents that create them - M
 });
