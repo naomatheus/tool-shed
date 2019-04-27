@@ -24,6 +24,13 @@
 			<a href="/comments/<%=tool._id%>/new">LEAVE A COMMENT ABOUT THIS TOOL</a>
 
 			<!-- THIS WORKS ^^^ DO NOT FUCK WITH IT ^^^ -->
+
+		<!-- NEed a place for the comment to land so it doesn't divert down to the tool index page -->
+
+		<div>
+			Here is the comment
+			<%=tool.comments%>
+		</div>
 	
 
 <%- include ../partials/footer.ejs %>

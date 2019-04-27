@@ -5,8 +5,13 @@
 
 
 	<h1>Comment new page</h1>
+	<div>
+		<p><%=tool%></p>
+		<img src='/tools/<%=tool._id%>/<%=tool.toolImage%>' />
+	</div>
 	<form action='/tools/<%=tool._id%>' method='POST'>
 		<!-- action='/comments' was previously here -->
+		<%=tool._id%>
 		Date: <input type="date" name="whenCommentPosted">
 		<br>
 		<br>

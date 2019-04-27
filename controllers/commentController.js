@@ -14,8 +14,12 @@ const Tool = require('../models/comment.js');
 
 /// comment new route ///
 router.get('/:toolId/new', (req, res) => {
-	const tool = Tool.findById({_id: req.params.id});
+	const tool = Tool.findById(req.params.id);
 								///may want to change this object reference
+	console.log('----------------');
+	console.log('this is the tool in comment new route');
+	console.log(tool);
+	console.log('----------------');
 	res.render('comments/new.ejs', {
 		tool: tool
 		//// if this doesn't work we'll have to query the tool id from the parameter
@@ -82,7 +86,10 @@ router.post('/:toolId', async (req, res, next) => {
 	try {
 		const createdComment = await Comment.create(req.body);
 		///here we are trying to reference the tool object by ID and push a comment from the comment array///
-		const foundTool = Tool.findById({toolId: req.params.id})/*findById({_id: req.params.id}).push(createdComment);*/
+		const foundTool = Tool.findById({toolId: req.params.id})
+		.populate('comments').exec();
+
+		findById({_id: req.params.id}).push(createdComment);
 							///if doesn't work reference toolID
 
 		console.log('========================');
