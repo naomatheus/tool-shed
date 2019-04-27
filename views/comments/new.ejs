@@ -9,7 +9,7 @@
 		<p><%=tool%></p>
 		<img src='/tools/<%=tool._id%>/<%=tool.toolImage%>' />
 	</div>
-	<form action='/tools/<%=tool._id%>' method='POST'>
+	<form action='/comments/<%=tool._id%>/' method='POST'>
 		<!-- action='/comments' was previously here -->
 		<%=tool._id%>
 		Date: <input type="date" name="whenCommentPosted">

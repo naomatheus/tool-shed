@@ -15,7 +15,7 @@ const Tool = require('../models/comment.js');
 /// comment new route ///
 router.get('/:toolId/new', (req, res) => {
 	const tool = Tool.findById({_id: req.params.id});
-								///may want to change this object reference
+	///may want to change this object reference
 	console.log('----------------');
 	console.log('this is the tool in comment new route');
 	console.log(tool);
@@ -83,20 +83,21 @@ router.get('/:id/edit', async (req, res) => {
 
 //// CREATE/POST ROUTE ///// 
 router.post('/:toolId', async (req, res, next) => {
+
 	try {
 		const createdComment = await Comment.create(req.body);
 		///here we are trying to reference the tool object by ID and push a comment from the comment array///
+		Tool.findById({_id: req.params.id}).push(createdComment);
+
 		const foundTool = Tool.findById({toolId: req.params.id})
 		.populate('comments').exec();
 
-		findById({_id: req.params.id}).push(createdComment);
-							///if doesn't work reference toolID
+		
+		///if doesn't work reference toolID
 
 		console.log('========================');
-		console.log(foundTool, '<======= has hit the CREATE/POST COMMENT ROUTE');
-		console.log('========================');
-		console.log('=============');
-		console.log(`${createdComment}, <====== has been created by the COMMENT POST ROUTE`);
+		console.log(req.file);
+		console.log('this is req.file^^');
 		console.log('=============');
 		res.redirect('/tools/:id');
 		// res.redirect('/comments')

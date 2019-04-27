@@ -9,7 +9,8 @@ const fs 				= require('fs');
 
 /// require tools model ///
 const Tool = require('../models/tool.js');
-const User = require('../models/user.js')
+const User = require('../models/user.js');
+const Comment = require('../models/comment.js');
 /// require tools model ///
 
 /// tools new route ///
