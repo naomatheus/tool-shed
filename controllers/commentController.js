@@ -14,7 +14,7 @@ const Tool = require('../models/comment.js');
 
 /// comment new route ///
 router.get('/:toolId/new', (req, res) => {
-	const tool = Tool.findById(req.params.id);
+	const tool = Tool.findById({_id: req.params.id});
 								///may want to change this object reference
 	console.log('----------------');
 	console.log('this is the tool in comment new route');
