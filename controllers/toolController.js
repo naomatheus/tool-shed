@@ -77,7 +77,8 @@ router.get('/:id/picture', async (req, res, next) => {
 //// tools show route///
 router.get('/:id', async (req, res) => {
 	try{
-		const foundTool = await Tool.findById({_id: req.params.id});
+		const foundTool = await Tool.findById({_id: req.params.id}).populate('comments').exec()
+		;
 		console.log('=====================');
 		console.log(`${foundTool} <======= tool has hit the TOOL SHOW GET ROUTE!!`);
 		console.log('=====================');
