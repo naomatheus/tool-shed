@@ -13,9 +13,16 @@ const Tool = require('../models/comment.js');
 /// require comments model ///
 
 /// comment new route ///
-router.get('/new', (req, res) => {
-	res.render('comments/new.ejs')	
+router.get('/:toolId/new', (req, res) => {
+	const tool = Tool.findById({_id: req.params.id});
+								///may want to change this object reference
+	res.render('comments/new.ejs', {
+		tool: tool
+		//// if this doesn't work we'll have to query the tool id from the parameter
+		//// that we have in the root
+	})	
 })
+
 /// comment new route ///
 
 //// INDEX GET ROUTE ///
@@ -71,11 +78,13 @@ router.get('/:id/edit', async (req, res) => {
 //// COMMENT EDIT GET ROUTE ////
 
 //// CREATE/POST ROUTE ///// 
-router.post('/', async (req, res, next) => {
+router.post('/:toolId', async (req, res, next) => {
 	try {
 		const createdComment = await Comment.create(req.body);
 		///here we are trying to reference the tool object by ID and push a comment from the comment array///
-		const foundTool = Tool.findById({})/*findById({_id: req.params.id}).push(createdComment);*/
+		const foundTool = Tool.findById({toolId: req.params.id})/*findById({_id: req.params.id}).push(createdComment);*/
+							///if doesn't work reference toolID
+
 		console.log('========================');
 		console.log(foundTool, '<======= has hit the CREATE/POST COMMENT ROUTE');
 		console.log('========================');
@@ -123,7 +132,7 @@ router.delete('/:id', async (req, res) => {
 })
 
 ///// END OF DELETE ROUTE /// 
-
+///THIS IS A COMMENT ON THE COMMENT CONTROLLER///
 
 //// export router
 
