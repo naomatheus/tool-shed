@@ -51,7 +51,7 @@ const authController = require('./controllers/authController.js')
 // require controllers 
 app.use('/users', userController);
 app.use('/tools', toolController)
-app.use('/tools/:id/comments', commentController)
+app.use('/comments', commentController)
 app.use('/auth', authController);
 
 /// listener
