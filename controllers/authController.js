@@ -106,5 +106,8 @@ router.get('/logout', (req, res) => {
 /// END OF LOGOUT USER ROUTE (DESTROY)
 
 
+///THIS IS A COMMENT MADE TO THE AUTH CONTROLLER FROM BRANCH CSS///
+
+
 
 module.exports = router;
