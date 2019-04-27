@@ -5,6 +5,8 @@
 
 	<h2><%=tool.typeOfTool%>'s Show Page</h2>
 
+	<img src='/tools/<%=tool._id%>/picture' />
+
 		<ul id="toolShowUL">
 			<li><%=tool.typeOfTool%></li>
 			<br>
@@ -21,7 +23,7 @@
 			<br>
 			<a href="/tools/<%=tool._id%>/comments/new">LEAVE A COMMENT ABOUT THIS TOOL</a>
 
-			<!-- we want something ^^^ here that ^^^ will allow users to post comment(s) -->
+			<!-- THIS WORKS ^^^ DO NOT FUCK WITH IT ^^^ -->
 	
 
 <%- include ../partials/footer.ejs %>
