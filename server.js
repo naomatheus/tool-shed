@@ -31,7 +31,7 @@ app.use(session({
 	secret: 'It is a huuuge secret',
 	resave: false,
 	saveUninitialized: false
-}))
+}));
 
 /// MIDDLEWARE ///
 
