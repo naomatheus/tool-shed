@@ -4,10 +4,9 @@
 	<ul>
 		<% tools.forEach((tool) => { %>
 			<li><a href='/tools/<%=tool._id%>'><%=tool.typeOfTool%></li></a>
-			<li><%=tool.timePosted%></li>  
-			<li><%=tool.typeOfTool%></li> 
-			<li><%=tool.description%></li> 
-			<li>AN IMAGE OF THE TOOL HERE<%=tool.toolImage%></li>
+			<li>Date/Time Posted: <%=tool.timePosted%></li>  
+			<li>Tool Type: <%=tool.typeOfTool%></li> 
+			<li>Description: <%=tool.description%></li> 
 			<li><img src='/tools/<%=tool._id%>/picture' /></li>
 			<br>
 
