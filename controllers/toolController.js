@@ -8,9 +8,15 @@ const fs 				= require('fs');
 /// node modules
 
 /// require tools model ///
+
 const Tool 		= require('../models/tool.js');
 const User 		= require('../models/user.js');
 const Comment 	= require('../models/comment.js');
+
+const Tool = require('../models/tool.js');
+const User = require('../models/user.js');
+const Comment = require('../models/comment.js');
+
 /// require tools model ///
 
 /// tools new route ///
