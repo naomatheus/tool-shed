@@ -30,13 +30,9 @@ app.use('/pathfinder', function(req, res, next){
 app.use(session({
 	secret: 'It is a huuuge secret',
 	resave: false,
-<<<<<<< HEAD
 	saveUninitialized: false,
-}))
-=======
-	saveUninitialized: false
 }));
->>>>>>> 059e7402c86ee95d84de0bb178595e0035842d9c
+
 
 /// MIDDLEWARE ///
 
@@ -55,7 +51,7 @@ const authController = require('./controllers/authController.js')
 // require controllers 
 app.use('/users', userController);
 app.use('/tools', toolController)
-app.use('/comments', commentController)
+app.use('/tools/:id/comments', commentController)
 app.use('/auth', authController);
 
 /// listener

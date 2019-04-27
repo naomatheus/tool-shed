@@ -8,11 +8,12 @@ const commentSchema = new mongoose.Schema({
 	whenCommentPosted: Date,
 	commentBody: String,
 	// DOES THE COMMENT MODEL NEED TO REFERENCE TOOL DOCUMENTS TO SHOW WHICH TOOL IT WAS POSTED ON??? NO because it will be on that page anyway toolDoc: [{type: mongoose.Schema.Types.ObjectId, ref:'Tool'}],
-	commentAuthor: {
-		type: mongoose.Schema.Types.ObjectId,
-		ref:'User'
-	}
-
+	commentAuthor: String
+	// {
+	// 	type: mongoose.Schema.Types.ObjectId,
+	// 	ref:'User'
+	// }
+///testing the comment route - change this back after sure it works///
 });
 
 

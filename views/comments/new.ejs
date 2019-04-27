@@ -6,9 +6,16 @@
 
 	<h1>Comment new page</h1>
 	<form action='/comments' method='POST'>
-		<input type="date" name="whenCommentPosted">
-		<input type="text" name="commentBody">
-		<input type="text" name="commentAuthor">
+		<!-- action='/comments' was previously here -->
+		Date: <input type="date" name="whenCommentPosted">
+		<br>
+		<br>
+		Comment: <input type="text" name="commentBody" placeholder="insert comment">
+		<br>
+		<br>
+		Author: <input type="text" name="commentAuthor" placeholder="comment author">
+		<br>
+		<br>
 		<button type='submit'>Post Comment</button>
 	</form>
 

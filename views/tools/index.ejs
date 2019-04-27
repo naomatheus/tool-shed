@@ -1,8 +1,8 @@
 <%- include ../partials/header.ejs %>
 <title>Tools Index Page</title>
 	<h2>Tools Index page</h2>
-		<% tools.forEach((tool) => { %>
 	<ul>
+		<% tools.forEach((tool) => { %>
 			<li><a href='/tools/<%=tool._id%>'><%=tool.typeOfTool%></li></a>
 			<li><%=tool.timePosted%></li>  
 			<li><%=tool.typeOfTool%></li> 

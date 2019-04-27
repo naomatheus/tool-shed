@@ -9,6 +9,7 @@ const pathfinderUI 		= require('pathfinder-ui');
 
 /// require comments model ///
 const Comment = require('../models/comment.js');
+const Tool = require('../models/comment.js');
 /// require comments model ///
 
 /// comment new route ///
@@ -70,15 +71,22 @@ router.get('/:id/edit', async (req, res) => {
 //// COMMENT EDIT GET ROUTE ////
 
 //// CREATE/POST ROUTE ///// 
-router.post('/', async (req, res) => {
+router.post('/', async (req, res, next) => {
 	try {
 		const createdComment = await Comment.create(req.body);
+		///here we are trying to reference the tool object by ID and push a comment from the comment array///
+		const foundTool = Tool.findById({})/*findById({_id: req.params.id}).push(createdComment);*/
+		console.log('========================');
+		console.log(foundTool, '<======= has hit the CREATE/POST COMMENT ROUTE');
+		console.log('========================');
 		console.log('=============');
 		console.log(`${createdComment}, <====== has been created by the COMMENT POST ROUTE`);
 		console.log('=============');
-		res.redirect('/comments')
+		res.redirect('/tools/:id');
+		// res.redirect('/comments')
 	} catch (err) {
-		res.send(err)
+		next(err);
+		// res.send(err);
 	}
 })
 
