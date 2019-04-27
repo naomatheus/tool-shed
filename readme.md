@@ -3,6 +3,21 @@
 ## Find the tools you need....instantly
 
 
+## GOALS 4-27-19
+
+- Images and buffer data type added to tools show page
+- Implement populate in Tools index to show owner information
+- Implement populate in Tools show to show even more owner information
+- debug stuff 
+
+Afternoon
+- think about the user flow 
+- do some bootstrap stuff
+- Add a logout button to the nav bar if they're logged in. Can be some EJS logic (if logged in, show logout; else show login and register)
+
+- Decide how we think we wanna style it **WORKING**
+- do some styling stuff **WORKING**
+
 ## GOALS 4-26-19 
 
 
@@ -15,23 +30,15 @@ MORNING
 - Get information/guidance on all of the hard things 
 Hard things:
 - Populate()
-- AuthController (using Jim's video after 1:21:00 use it to prevent the homepage from appearing without req.session.logged being true)
+~ - AuthController (using Jim's video after 1:21:00 use it to prevent the homepage from appearing without req.session.logged being true) ~ 
 
-- Bcrypt (goes in the authcontroller)
+~ - Bcrypt (goes in the authcontroller) ~ 
 
-- Images and buffer data types 
+~ - Images and buffer data type added to index page ~
 
-- include sessions (happens in the server) (session middleware) (it gets handled by the authcontroller/bcrypt)
--- each time you save a change in the code, it resets the server. and that destroys the session and you have to login to start new session
+~ - include sessions (express-session middleware) (it gets handled by the authcontroller/bcrypt) ~ 
+~ -- each time you save a change in the code, it resets the server. and that destroys the session and you have to login to start new session ~ 
 -- make sure you have a new link tied to your login page when you're debugging after having sessions
-
-Afternoon
-- think about the user flow 
-- do some bootstrap stuff
-- Add a logout button to the nav bar if they're logged in. Can be some EJS logic (if logged in, show logout; else show login and register)
-
-- Decide how we think we wanna style it **WORKING**
-- do some styling stuff **WORKING**
 
 
 ## GOALS 4-25-19 

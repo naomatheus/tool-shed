@@ -57,7 +57,7 @@ router.get('tools/:id', async (req, res) => {
 
 //// tool index display gotten image route ///
 
-/// tool image serving route ///
+/// tool image serving route /// /// this route is also picking up the foundTool with UserID and may pick up comments as well 
 router.get('/:id/picture', async (req, res, next) => {
 		try {
 			const foundTool = await Tool.findById(req.params.id);
