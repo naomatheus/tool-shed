@@ -4,12 +4,12 @@
 <title>Comments New Page</title>
 
 
-	<h1>Comment new page</h1>
+	<h1>New Comment Page</h1>
 	<div>
-		<p><%=tool%></p>
-		<img src='/tools/<%=tool._id%>/<%=tool.toolImage%>' />
+		<h4><%=tool.typeOfTool%></h4>
+		<img src='/comments/<%=tool._id%>/picture' />
 	</div>
-	<form action='/tools/<%=tool._id%>' method='POST'>
+	<form action='/comments/<%=tool._id%>' method='POST'>
 		<!-- action='/comments' was previously here -->
 		<%=tool._id%>
 		Date: <input type="date" name="whenCommentPosted">

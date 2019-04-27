@@ -1,15 +1,16 @@
 const express 			= require('express');
 const mongoose 			= require('mongoose');
 const router 			= express.Router();
-// const pathfinderUI 		= require('pathfinder-ui');
+const pathfinderUI 		= require('pathfinder-ui');
 const multer 			= require('multer');
 const upload 			= multer({dest: './uploads'});
 const fs 				= require('fs');	
 /// node modules
 
 /// require tools model ///
-const Tool = require('../models/tool.js');
-const User = require('../models/user.js')
+const Tool 		= require('../models/tool.js');
+const User 		= require('../models/user.js');
+const Comment 	= require('../models/comment.js');
 /// require tools model ///
 
 /// tools new route ///

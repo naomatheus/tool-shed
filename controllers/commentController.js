@@ -9,28 +9,29 @@ const pathfinderUI 		= require('pathfinder-ui');
 
 /// require comments model ///
 const Comment = require('../models/comment.js');
-const Tool = require('../models/comment.js');
+const Tool = require('../models/tool.js');
 /// require comments model ///
 
 /// comment new route ///
 router.get('/:toolId/new', (req, res) => {
-	const tool = Tool.findById(req.params.id);
+	const tool = Tool.findById({_id: req.params.id});
 								///may want to change this object reference
 	console.log('----------------');
 	console.log('this is the tool in comment new route');
 	console.log(tool);
 	console.log('----------------');
 	res.render('comments/new.ejs', {
-		tool: tool
+		tool: Tool
 		//// if this doesn't work we'll have to query the tool id from the parameter
 		//// that we have in the root
+//// IN THIS PAGE WE ARE TRYING TO REFERENCE THAT SPECIFIC TOOL'S ID SO THAT THE ROUTE KNOWS
+///  WHERE TO PLACE THE COMMENT!!!///
 	})	
 })
-
 /// comment new route ///
 
-//// INDEX GET ROUTE ///
 
+//// INDEX GET ROUTE ///
 router.get('/', async (req, res) => {
 	try {
 		const foundComments = await Comment.find({});
@@ -60,7 +61,6 @@ router.get('/:id', async (req, res) => {
 		res.send(err)
 	}
 })
-
 //// END OF SHOW GET ROUTE /// 
 
 //// COMMENT EDIT GET ROUTE ////
@@ -77,8 +77,7 @@ router.get('/:id/edit', async (req, res) => {
 	} catch (err) {
 		res.send(err)
 	}	
-})
-
+});
 //// COMMENT EDIT GET ROUTE ////
 
 //// CREATE/POST ROUTE ///// 
