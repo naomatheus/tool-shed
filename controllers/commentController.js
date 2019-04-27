@@ -13,7 +13,7 @@ const Tool = require('../models/comment.js');
 /// require comments model ///
 
 /// comment new route ///
-router.get('/new', (req, res) => {
+router.get('/:toolId/new', (req, res) => {
 	const tool = Tool.findById({_id: req.params.id});
 								///may want to change this object reference
 	res.render('comments/new.ejs', {
@@ -78,11 +78,13 @@ router.get('/:id/edit', async (req, res) => {
 //// COMMENT EDIT GET ROUTE ////
 
 //// CREATE/POST ROUTE ///// 
-router.post('/', async (req, res, next) => {
+router.post('/:toolId', async (req, res, next) => {
 	try {
 		const createdComment = await Comment.create(req.body);
 		///here we are trying to reference the tool object by ID and push a comment from the comment array///
-		const foundTool = Tool.findById({_id: req.params.id})/*findById({_id: req.params.id}).push(createdComment);*/
+		const foundTool = Tool.findById({toolId: req.params.id})/*findById({_id: req.params.id}).push(createdComment);*/
+							///if doesn't work reference toolID
+
 		console.log('========================');
 		console.log(foundTool, '<======= has hit the CREATE/POST COMMENT ROUTE');
 		console.log('========================');
