@@ -23,7 +23,7 @@ router.get('/new', (req, res) => {
 
 
 /// INDEX GET ROUTE ///
-router.get('/', async (req, res) => {
+router.get('/', async (req, res, next) => {
 	try{
 		const foundUsers = await User.find({});
 		console.log('=============');
@@ -34,7 +34,7 @@ router.get('/', async (req, res) => {
 		});
 
 	}catch(err){
-		res.send(err);
+		next(err)
 	}
 });
 /// END OF INDEX GET ROUTE ///
@@ -42,7 +42,7 @@ router.get('/', async (req, res) => {
 
 
 /// SHOW GET ROUTE ///
-router.get('/:id', async (req, res) => {
+router.get('/:id', async (req, res, next) => {
 	try{
 		const foundUser = await User.findById({_id: req.params.id});
 		console.log('=============');
@@ -52,7 +52,7 @@ router.get('/:id', async (req, res) => {
 			user: foundUser
 		})
 	}catch (err){
-		res.send(err)
+		next(err)
 	}
 });
 /// SHOW GET ROUTE ///
@@ -61,8 +61,6 @@ router.get('/:id', async (req, res) => {
 /// EDIT (GET) ROUTE ////
 router.get('/:id/edit', async (req, res, next) => {
 	try{
-		console.log(req.session.usersDbId);
-		console.log(res.locals.userId);
 		if (req.session.usersDbId !== res.locals.userId){
 
 			res.redirect('/tools');
@@ -97,14 +95,13 @@ router.post('/', async (req, res, next) => {
 		console.log('==============');
 		res.redirect('/users');
 	}catch(err){
-		// res.send(err);
 		next(err);
 	}
 });
 /// END OF CREATE/POST ROUTE///
 
 /// EDIT PUT ROUTE ///
-router.put('/:id', async (req, res) => {
+router.put('/:id', async (req, res, next) => {
 	try{
 		const updatedUser = await User.findByIdAndUpdate(req.params.id, req.body, {new: true});
 		console.log('==============');
@@ -112,12 +109,12 @@ router.put('/:id', async (req, res) => {
 		console.log('==============');
 		res.redirect('/users/' + req.params.id);
 	}catch (err){
-		res.send(err);
+		next(err)
 	}
 });
 
 /// DELETE ROUTE ////
-router.delete('/:id', async (req, res) => {
+router.delete('/:id', async (req, res, next) => {
 	try{
 		const deletedUser = await User.findByIdAndRemove(req.params.id);
 		console.log('=============');
@@ -125,7 +122,7 @@ router.delete('/:id', async (req, res) => {
 		console.log('=============');
 		// res.redirect('/users');
 	}catch(err){
-		res.send(err);
+		next(err)
 	}
 });
 /// END OF DELETE ROUTE ////

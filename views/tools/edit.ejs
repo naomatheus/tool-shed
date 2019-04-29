@@ -5,14 +5,31 @@
 
 
 	<h1>Tools Edit Page</h1>
+	<%if (canEdit){%>
 
-		<form id="toolEditForm" action="/tools/<%=tool._id%>?_method=PUT" method="POST">
-			Type of Tool: <input type="text" name="typeOfTool" value="<%=tool.typeOfTool%>" placeholder="<%=tool.typeOfTool%>"/>
-			<br>
-			Description: <input type="text" name="description" value="<%=tool.description%>" placeholder="<%=tool.description%>"/>
-			<br>
-			<button type="submit">UPDATE TOOL</button>
-		</form>		
+	<form id="toolEditForm" action="/tools/<%=tool._id%>?_method=PUT" method="POST">
+		Type of Tool: <input type="text" name="typeOfTool" value="<%=tool.typeOfTool%>" placeholder="<%=tool.typeOfTool%>"/>
+		<br>
+		<br>
+		Description: <input type="text" name="description" value="<%=tool.description%>" placeholder="<%=tool.description%>"/>
+		<br>
+		<br>
+		<button type="submit">UPDATE TOOL</button>
+		<br>
+		<br>
+	</form>	
+	<form action='/tools/<%=tool._id%>?_method=DELETE' method='POST'>
+		<button type='submit'>DELETE TOOL</button>
+	</form>
+		<br>
+	<%} else {%>
+	<h3>YOU HAVE NOT POSTED THIS TOOL AND CANNOT EDIT IT</h3>
+	<ul>
+		<li><%=tool.typeOfTool%></li>
+		<li><%=tool.description%></li>
+	</ul>
+
+	<%}%>
 
 <%- include ../partials/footer.ejs %>
 

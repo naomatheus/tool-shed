@@ -114,20 +114,28 @@ router.get('/:id', async (req, res) => {
 
 
 /// START OF EDIT GET ROUTE ///
-router.get('/:id/edit', async (req, res) => {
+router.get('/:id/edit', async (req, res, next) => {
 	try{
-
+		if (req.session.usersDbId !== res.locals.userId){
+			res.redirect('/')
+		} else {
 		const foundTool = await Tool.findByIdAndUpdate({_id: req.params.id});
 		console.log('=====================');
 		console.log(`${foundTool} <====== tool has hit the TOOL EDIT/UPDATE GET ROUTE!!!`);
 		console.log('=====================');
-		res.render('tools/edit.ejs', {
-			tool: foundTool
-		});
+		let userIsUser = false;
+		if (res.locals.userId === foundTool.owner._id.toString()){
+			userIsUser = true;
+			}
+			res.render('tools/edit.ejs', {
+				tool: foundTool,
+				canEdit: userIsUser
+			});
+		}
 	}catch(err){
-		res.send(err);
+		next(err)
 	}
-})
+});
 /// END OF EDIT GET ROUTE ///
 
 /// START OF CREATE/POST ROUTE ///
