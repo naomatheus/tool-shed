@@ -2,22 +2,26 @@
 ## Find the tools you need....instantly
 
 
+## GOALS 4-29-19
+
+- User should have the option of changing the image posted with their tool post
+- 
+- think about the user flow 
+- Styling
+
+
+-~~Link the User and Auth controllers, so that the User model is only created and or access after authentication~~
+-~~User should only be able to post tools and comments when logged in.~~
+-~~Implement populate in Tools index to show owner information~~
+-~~Implement populate in Tools show to show even more owner information~~
+-~~debug stuff~~
+
+
 ## GOALS 4-28-19
 
-
-- Link the User and Auth controllers, so that the User model is only created and or access after authentication.
--- User should only be able to post tools and comments when logged in.
-
-
-
-- Implement populate in Tools index to show owner information
-- Implement populate in Tools show to show even more owner information
-- debug stuff s
-
 Afternoon
-- think about the user flow 
-- do some bootstrap stuff
-- Add a logout button to the nav bar if they're logged in. Can be some EJS logic (if logged in, show logout; else show login and register)
+
+~~-Add a logout button to the nav bar if they're logged in. Can be some EJS logic (if logged in, show logout; else show login and register)~~
 
 ## GOALS 4-27-19
 
@@ -25,49 +29,39 @@ Afternoon
 - Implement populate in Tools show to show even more owner information
 - debug stuff 
 
-Afternoon
-- think about the user flow 
-- do some bootstrap stuff
-- Add a logout button to the nav bar if they're logged in. Can be some EJS logic (if logged in, show logout; else show login and register)
-
-- Decide how we think we wanna style it **WORKING**
-- do some styling stuff **WORKING**
+~~Decide how we think we wanna style it **WORKING**~~
 ~~Images and buffer data type added to tools show page~~
 
 ## GOALS 4-26-19 
 
 
-~~ - Get all EJS partials into comment and users EJS templates ~~
-
+~~-Get all EJS partials into comment and users EJS templates~~
 
 MORNING 
 ~ - Set up Auth Controller & Login/Register EJS Templates ~
  
 - Get information/guidance on all of the hard things 
 Hard things:
-- Populate()
-~ - AuthController (using Jim's video after 1:21:00 use it to prevent the homepage from appearing without req.session.logged being true) ~ 
+~~Populate()~~
+~~AuthController (using Jim's video after 1:21:00 use it to prevent the homepage from appearing without req.session.logged being true)~~ 
 
-~ - Bcrypt (goes in the authcontroller) ~ 
+~~Bcrypt (goes in the authcontroller)~~ 
 
-~ - Images and buffer data type added to index page ~
+~~Images and buffer data type added to index page~~
 
-~ - include sessions (express-session middleware) (it gets handled by the authcontroller/bcrypt) ~ 
-~ -- each time you save a change in the code, it resets the server. and that destroys the session and you have to login to start new session ~ 
--- make sure you have a new link tied to your login page when you're debugging after having sessions
-
+~~include sessions (express-session middleware) (it gets handled by the authcontroller/bcrypt)~~
 
 ## GOALS 4-25-19 
 
 MORNING
-- ~Set up the complete TOOLS MODEL **DONE**~
-- ~Test routes to all possible templates from the TOOLS MODEL **DONE**~
-- ~Make the EJS partials **DONE**~
+-~~Set up the complete TOOLS MODEL **DONE**~~
+-~~Test routes to all possible templates from the TOOLS MODEL **DONE**~
+-~~Make the EJS partials **DONE**~~
 
 
-- ~Ask them what to do next ~
-- ~ Get the User model 100% up and sort of going ~
-~-- set up static files folder **DONE**~
+-~~Ask them what to do next~~
+-~~ Get the User model 100% up and sort of going ~~
+-~~set up static files folder **DONE**~~
 
 
 
