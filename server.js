@@ -48,11 +48,11 @@ const userController = require('./controllers/userController.js');
 
 const authController = require('./controllers/authController.js')
 
-// require controllers 
+// require controllers
+app.use('/auth', authController);
 app.use('/users', userController);
 app.use('/tools', toolController)
 app.use('/comments', commentController)
-app.use('/auth', authController);
 
 /// listener
 

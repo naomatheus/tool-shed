@@ -3,12 +3,12 @@
 	<h2>Tools Index page</h2>
 	<ul>
 		<% tools.forEach((tool) => { %>
-			<li><a href='/tools/<%=tool._id%>'><%=tool.typeOfTool%></li></a>
-			<li>Date/Time Posted: <%=tool.timePosted%></li>  
-			<li>Tool Type: <%=tool.typeOfTool%></li> 
-			<li>Description: <%=tool.description%></li> 
-			<li><img src='/tools/<%=tool._id%>/picture' /></li>
-			<br>
+		<li><a href='/tools/<%=tool._id%>'><%=tool.typeOfTool%></li></a>
+		<li>Date/Time Posted: <%=tool.timePosted%></li>  
+		<li>Tool Type: <%=tool.typeOfTool%></li> 
+		<li>Description: <%=tool.description%></li> 
+		<li><img src='/tools/<%=tool._id%>/picture' /></li>
+		<br>
 
 		<% })%>
 	</ul>

@@ -7,6 +7,8 @@ const bodyParser 		= require('body-parser');
 const ejs 				= require('ejs');
 const pathfinderUI 		= require('pathfinder-ui');
 
+////WE NEED LOGIC HERE TO STATE THAT ONLY LOGGED IN SUPERUSERS (CLAYTON/MATT) CAN ACCESS THIS
+///ENTIRE TREE.
 
 /// require user model ///
 const User = require('../models/user.js');
@@ -28,7 +30,7 @@ router.get('/', async (req, res) => {
 		console.log('=============');
 		res.render('users/index.ejs', {
 			users: foundUsers
-		})
+		});
 
 	}catch(err){
 		res.send(err);
@@ -94,7 +96,7 @@ router.put('/:id', async (req, res) => {
 		console.log('==============');
 		console.log(`${updatedUser} <========== this user has been updated in the USER PUT ROUTE!!!`);
 		console.log('==============');
-		res.redirect('/users' + req.params.id);
+		res.redirect('/users/' + req.params.id);
 	}catch (err){
 		res.send(err);
 	}

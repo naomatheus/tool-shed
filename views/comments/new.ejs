@@ -1,16 +1,15 @@
-<!-- comment -->
-	
 <%- include ../partials/header.ejs %>
+
 <title>Comments New Page</title>
 
 
 	<h1>New Comment Page</h1>
 	<div>
 		<h4><%=tool.typeOfTool%></h4>
-		<img src='/comments/<%=tool._id%>/picture' />
+		<img src="/tools/<%=tool.id%>/picture"/>
 	</div>
 
-	<form action='/comments/<%=tool._id%>' method='POST'>
+	<form action='/comment/<%=tool._id%>' method='POST'>
 
 		<!-- action='/comments' was previously here -->
 		<%=tool._id%>

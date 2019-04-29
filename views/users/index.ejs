@@ -3,17 +3,17 @@
 	<%- include ../partials/header.ejs %>
 	<title>Users Index Page</title>
 
-<h2>Users Index Pages</h2>
+<h2>Users Index Page</h2>
 
 
 <% users.forEach((users) => { %>
 	<ul>
 		<li><a href='/users/<%=users._id%>'><%=users.userName%></li></a>
 		<li><%=users.userName%></li>  
-		<li><%=users.email%></li> 
+		<li><%=users.email%></li>
 	</ul>
 		<br>
 
 <% })%>
 
-  <footer>© 2019 MATTON INC.</footer>
+  <%- include ../partials/footer.ejs %>

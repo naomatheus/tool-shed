@@ -1,20 +1,16 @@
 
 	
 <%- include ../partials/header.ejs %>
-<title>Users Show Page</title>
-	<h1>Users Show Page</h1>
 
-	<h2><%=user.userName%>'s Show Page</h2>
+<title>Users Show Page</title>
+
+	<h2><%=user.userName%>'s Account</h2>
 
 	<ul id="userShowUL">
-		<li><%=user.userName%></li>
+		<li>username: <%=user.userName%></li>
 		<br>
 		<li><%=user.email%></li>
 	</ul>
-
-	<form action='/users/<%=user._id%>?_method=DELETE' method='POST'>
-		<button type='submit'>DELETE USER</button>
-	</form>
 		<br>
 		<a href="/users/<%=user._id%>/edit">EDIT USER</a>
 <%- include ../partials/footer.ejs %>

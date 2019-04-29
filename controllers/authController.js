@@ -47,6 +47,7 @@ router.post('/register', async (req, res, next) => {
 		console.log("=================");
 		console.log(req.session);
 		req.session.logged = true;
+
 		req.session.usersDbId = createdUser._id;
 		res.redirect('/auth/login');  ///not sure about redirect site
 	}catch(err){
@@ -64,16 +65,19 @@ router.post('/login', async (req, res, next) => {
     try {
         const foundUser = await User.findOne({'userName': req.body.userName});
         if (!foundUser) {
-            console.log("User not found)")
+            console.log("User not foundUser")
             res.redirect('/auth/register')
         } else if (foundUser) {
+        	console.log("++++++++++++++++++++++++++");
+        	console.log(foundUser);
+        	console.log("++++++++++++++++++++++++++");
             const passwordMatch = bcrypt.compareSync(req.body.password, foundUser.password)
             if (passwordMatch === true) {
                 req.session.message = '';
                 req.session.logged = true;
-                req.session.username = req.body.username;
+                req.session.username = req.body.userName;
                 req.session.usersDbId = foundUser._id;
-                console.log(`${req.session} <===== SUCCESSFUL LOGIN!`);
+                console.log(req.body.userName + " <===== SUCCESSFUL LOGIN!");
                 res.redirect('/tools') 
             } else if (passwordMatch === false) {
                 req.session.message = "Username or password is incorrect";

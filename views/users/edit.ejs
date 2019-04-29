@@ -1,8 +1,23 @@
 
 
-<%- include ../partials/header.ejs %>
+<%- include ../partials/userEditheader.ejs %>
 <title>Users Edit Page</title>
 
-	<h2>Users Edit Page</h2>
+	<h2>Edit your account here, <%=user.userName%></h2>
 
-<footer>© 2019 MATTON INC.</footer>
+	<form id="userEditForm" action="/users/<%=user._id%>?_method=PUT" method="POST">
+		Username: <input type="text" name="userName" value="<%=user.userName%>" placeholder="<%=user.userName%>"/>
+		<br>
+		<br>
+		Email: <input type="email" name="email" value="<%=user.email%>" placeholder="<%=user.email%>"/>
+		<br>
+		<br>
+		<button type="submit">SUBMIT</button>
+	</form>
+		<br>
+		<br>
+	<form action='/users/<%=user._id%>?_method=DELETE' method='POST'>
+		<button type='submit'>DELETE USER</button>
+	</form>		
+
+<%- include ../partials/footer.ejs %>

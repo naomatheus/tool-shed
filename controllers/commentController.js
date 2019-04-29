@@ -16,8 +16,6 @@ const Tool = require('../models/tool.js');
 router.get('/:toolId/new', (req, res) => {
 	const tool = Tool.findById({_id: req.params.id});
 
-								///may want to change this object reference
-
 	///may want to change this object reference
 
 	console.log('----------------');
@@ -26,12 +24,12 @@ router.get('/:toolId/new', (req, res) => {
 	console.log('----------------');
 	res.render('comments/new.ejs', {
 		tool: Tool
+	})	
+});
 		//// if this doesn't work we'll have to query the tool id from the parameter
 		//// that we have in the root
 //// IN THIS PAGE WE ARE TRYING TO REFERENCE THAT SPECIFIC TOOL'S ID SO THAT THE ROUTE KNOWS
 ///  WHERE TO PLACE THE COMMENT!!!///
-	})	
-})
 /// comment new route ///
 
 

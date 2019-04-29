@@ -7,30 +7,30 @@
 
 	<img src='/tools/<%=tool._id%>/picture' />
 
-		<ul id="toolShowUL">
-			<li><%=tool.typeOfTool%></li>
-			<br>
-			<li><%=tool.description%></li>
-			<br>
-			<li><%=tool.timePosted%></li>
-		</ul>
+	<ul id="toolShowUL">
+		<li><%=tool.typeOfTool%></li>
+		<br>
+		<li><%=tool.description%></li>
+		<br>
+		<li><%=tool.timePosted%></li>
+	</ul>
 
-		<form action='/tools/<%=tool._id%>?_method=DELETE' method='POST'>
-			<button type='submit'>DELETE TOOL</button>
-		</form>
-			<br>
-			<a href="/tools/<%=tool._id%>/edit">EDIT TOOL</a>
-			<br>
-			<a href="/comments/<%=tool._id%>/new">LEAVE A COMMENT ABOUT THIS TOOL</a>
+	<form action='/tools/<%=tool._id%>?_method=DELETE' method='POST'>
+		<button type='submit'>DELETE TOOL</button>
+	</form>
+		<br>
+		<a href="/tools/<%=tool._id%>/edit">EDIT TOOL</a>
+		<br>
+		<a href="/comments/<%=tool._id%>/new">LEAVE A COMMENT ABOUT THIS TOOL</a>
 
 			<!-- THIS WORKS ^^^ DO NOT FUCK WITH IT ^^^ -->
 
 		<!-- NEed a place for the comment to land so it doesn't divert down to the tool index page -->
 
-		<div>
-			Here is the comment
-			<%=tool.comments%>
-		</div>
+	<div>
+		Here is the comment
+		<%=tool.comments%>
+	</div>
 	
 
 <%- include ../partials/footer.ejs %>

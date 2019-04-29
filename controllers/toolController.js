@@ -13,10 +13,6 @@ const Tool 		= require('../models/tool.js');
 const User 		= require('../models/user.js');
 const Comment 	= require('../models/comment.js');
 
-const Tool = require('../models/tool.js');
-const User = require('../models/user.js');
-const Comment = require('../models/comment.js');
-
 /// require tools model ///
 
 /// tools new route ///
@@ -47,8 +43,10 @@ router.get('/', async (req, res) => {
 
 //// tool index display gotten image route ///
 
-router.get('tools/:id', async (req, res) => {
+router.get('/tools/:id', async (req, res) => {
 	try {
+		/// HERE WE MAY WANT TO HAVE A PAGE RENDERED THAT JUST DISPLAYS THE IMAGES SO THAT WE CAN REFERENCE
+		/// THEM IN ANOTHER ROUTE
 		const displayedToolImage = Tool.findById(req.params.id.toolImage)
 		console.log(displayedToolImage, "this image should be displayed ");
 		// res.render('toolImage', {
@@ -58,7 +56,7 @@ router.get('tools/:id', async (req, res) => {
 	catch (err) {
 		res.send(err)
 	}
-})
+});
 
 
 
@@ -143,7 +141,6 @@ router.post('/', upload.single('imageData'), async (req, res, next) => {
 		console.log(req.file);
 		// console.log(`${req.file} <===== t`);
 		// console.log('=====================');
-
 		const img = {}
 		img.imageTitle = req.body.imageTitle;
 		img.imageDescription = req.body.imageDescription;
