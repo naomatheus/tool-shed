@@ -22,6 +22,24 @@ app.use(express.static('servestatic'));
 app.use(methodOverride('_method'));
 app.use(bodyParser.urlencoded({extended: false}));
 
+// set userID in res.locals, using custom middleware with code like: 
+
+	// https://expressjs.com/en/api.html#res.locals
+	// https://stackoverflow.com/a/24072444
+
+
+
+
+		// let userIdVar
+		// if(logged in) {
+			// set userId to be userid from session
+		// } else {
+			// set userId to be null
+		// }
+			// id: userId
+
+
+
 app.use('/pathfinder', function(req, res, next){
     pathfinderUI(app)
     next()
@@ -40,7 +58,6 @@ app.use(session({
 // require + use controllers 
 
 const commentController = require('./controllers/commentController.js');
-
 
 const toolController = require('./controllers/toolController.js');
 

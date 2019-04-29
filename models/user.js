@@ -16,7 +16,7 @@ console.log("");
 console.log("");
 console.log("");
 console.log("THIS IS THE user SCHEMA:");
-console.log(userSchema);
+// console.log(userSchema);
 
 const User = mongoose.model('User', userSchema);
 
@@ -24,6 +24,6 @@ console.log("");
 console.log("");
 console.log("");
 console.log("THIS IS THE user MODEL:");
-console.log(User);
+// console.log(User);
 
 module.exports = User;

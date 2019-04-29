@@ -30,7 +30,7 @@ router.get('/new', (req, res) => {
 /// tools new route ///
 
 //// tools index route /// 
-router.get('/', async (req, res) => {
+router.get('/', async (req, res, next) => {
 
 		try {
 
@@ -46,7 +46,7 @@ router.get('/', async (req, res) => {
 			})
 
 		} catch (err){
-			res.send(err)
+			next(err)
 		}
 })	
 //// tools index route /// 
@@ -54,7 +54,7 @@ router.get('/', async (req, res) => {
 
 //// tool index display gotten image route ///
 
-router.get('/tools/:id', async (req, res) => {
+router.get('/tools/:id', async (req, res, next) => {
 	try {
 		/// HERE WE MAY WANT TO HAVE A PAGE RENDERED THAT JUST DISPLAYS THE IMAGES SO THAT WE CAN REFERENCE
 		/// THEM IN ANOTHER ROUTE
@@ -65,7 +65,7 @@ router.get('/tools/:id', async (req, res) => {
 		// })
 	} 
 	catch (err) {
-		res.send(err)
+		next(err)
 	}
 });
 
