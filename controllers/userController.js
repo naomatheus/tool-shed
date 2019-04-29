@@ -6,6 +6,7 @@ const methodOverride 	= require('method-override');
 const bodyParser 		= require('body-parser');
 const ejs 				= require('ejs');
 const pathfinderUI 		= require('pathfinder-ui');
+const session 			= require('express-session');
 
 ////WE NEED LOGIC HERE TO STATE THAT ONLY LOGGED IN SUPERUSERS (CLAYTON/MATT) CAN ACCESS THIS
 ///ENTIRE TREE.
