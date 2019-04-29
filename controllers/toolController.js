@@ -34,7 +34,9 @@ router.get('/', async (req, res) => {
 
 		try {
 
-			const foundTools = await Tool.find({});
+			const foundTools = await Tool.find({})
+			.populate('owner'/*{path:'owner', select:'userName'+'-_id'}*/)
+			.exec();
 			// tool should be displayed with it's image in the tools index
 			console.log('====================');
 			console.log(`${foundTools} <===== has been found in the TOOL INDEX GET ROUTE`);

@@ -7,6 +7,7 @@
 		<li>Date/Time Posted: <%=tool.timePosted%></li>  
 		<li>Tool Type: <%=tool.typeOfTool%></li> 
 		<li>Description: <%=tool.description%></li> 
+		<li>Owner: <a href='/users/<%=tool.owner._id%>'><%=tool.owner.userName%></a></li>
 		<li><img src='/tools/<%=tool._id%>/picture' /></li>
 		<br>
 
