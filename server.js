@@ -22,22 +22,6 @@ app.use(express.static('servestatic'));
 app.use(methodOverride('_method'));
 app.use(bodyParser.urlencoded({extended: false}));
 
-// set userID in res.locals, using custom middleware with code like: 
-
-	// https://expressjs.com/en/api.html#res.locals
-	// https://stackoverflow.com/a/24072444
-
-
-
-
-		// let userIdVar
-		// if(logged in) {
-			// set userId to be userid from session
-		// } else {
-			// set userId to be null
-		// }
-			// id: userId
-
 
 
 app.use('/pathfinder', function(req, res, next){
@@ -50,7 +34,30 @@ app.use(session({
 	resave: false,
 	saveUninitialized: false,
 }));
+////CUSTOM MIDDLE WARE RES.LOCALS////
+		// let userIdVar
+		// if(logged in) {
+			// set userId to be userid from session
+		// } else {
+			// set userId to be null
+		// }
+			// id: userId
 
+// set userID in res.locals, using custom middleware with code like: 
+
+	// https://expressjs.com/en/api.html#res.locals
+	// https://stackoverflow.com/a/24072444
+
+app.use(function(req, res, next){
+	res.locals.userId = req.session.usersDbId;
+	res.locals.authenticated = !req.session.anonymous;
+	next()
+});
+
+// app.use(function(req, res, next){
+// 	res.locals.user = User.userId
+// }
+////CUSTOM MIDDLE WARE RES.LOCALS////
 
 /// MIDDLEWARE ///
 

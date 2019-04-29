@@ -57,25 +57,34 @@ router.get('/:id', async (req, res) => {
 });
 /// SHOW GET ROUTE ///
 
+///error: {"message":"Cast to ObjectId failed for value \"{ _id: 'server.js' }\" at path \"_id\" for model \"User\"","name":"CastError","stringValue":"\"{ _id: 'server.js' }\"","kind":"ObjectId","value":{"_id":"server.js"},"path":"_id"}
+
 
 
 /// EDIT (GET) ROUTE ////
 router.get('/:id/edit', async (req, res, next) => {
 	try{
 		// get userId from session
-		// if(diff id ) {
-		// 	redirect: hell no
-		// } else {
+		console.log(req.session.usersDbId);
+		console.log(res.locals.userId);
+		if (req.session.usersDbId !== res.locals.userId){
+
+			res.redirect('/tools');
+		} else {
 			const foundUser = await User.findByIdAndUpdate(req.params.id, {});
 			console.log("===========");
 			console.log(`${foundUser} <=========== has been found in the USER EDIT/UPDATE GET ROUTE!!!`);
 			console.log("===========");
+			let userIsUser = false;
+			if (res.locals.userId === foundUser._id.toString()){
+				userIsUser = true;
+			}
 			res.render('users/edit.ejs', {
-				user: foundUser
+				user: foundUser,
+				canEdit: userIsUser
 			});
 
-		// }
-
+		}
 		
 	}catch(err){
 		next(err);

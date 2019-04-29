@@ -2,8 +2,12 @@
 
 <%- include ../partials/header.ejs %>
 <title>Users Edit Page</title>
-
+	<%if (canEdit){ %>
 	<h2>Edit your account here, <%=user.userName%></h2>
+	<% } else {%>
+	<h2> Here is, <%user.userName%>'s Account</h2>
+	<%}%>
+	<%if (canEdit){ %>
 
 	<form id="userEditForm" action="/users/<%=user._id%>?_method=PUT" method="POST">
 		Username: <input type="text" name="userName" value="<%=user.userName%>" placeholder="<%=user.userName%>"/>
@@ -19,5 +23,12 @@
 	<form action='/users/<%=user._id%>?_method=DELETE' method='POST'>
 		<button type='submit'>DELETE USER</button>
 	</form>		
+	<% } else { %>
+	<ul>
+		<li><%=user.userName%></li>
+		<li><%=user.email%></li>
+	</ul>
+
+	<%}%>
 
 <%- include ../partials/footer.ejs %>

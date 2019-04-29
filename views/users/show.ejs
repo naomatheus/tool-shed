@@ -2,14 +2,14 @@
 	
 <%- include ../partials/header.ejs %>
 
-<title>Users Show Page</title>
+<title>User Show Page</title>
 
 	<h2><%=user.userName%>'s Account</h2>
 
 	<ul id="userShowUL">
 		<li>username: <%=user.userName%></li>
 		<br>
-		<li><%=user.email%></li>
+		<li>email: <%=user.email%></li>
 	</ul>
 		<br>
 		<a href="/users/<%=user._id%>/edit">EDIT USER</a>
