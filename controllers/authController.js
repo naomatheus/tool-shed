@@ -45,9 +45,10 @@ router.post('/register', async (req, res, next) => {
 		console.log("=================");
 		console.log(`${createdUser} <======= user has been created in REGISTER POST USER ROUTE`);
 		console.log("=================");
-		console.log(req.session);
+		
 		req.session.logged = true;
 		req.session.usersDbId = createdUser._id;
+		console.log(req.session);
 		res.redirect('/auth/login');  ///not sure about redirect site
 	}catch(err){
 		next(err);
@@ -94,6 +95,8 @@ router.post('/login', async (req, res, next) => {
 
 /// GET LOGOUT USER ROUTE (DESTROY)
 router.get('/logout', (req, res) => {
+// if the user clicks log out when logged in, they should be logged out.
+	/// when they click log out, the user is changed to a loggged out session
 	req.session.destroy((err) => {
 		if (err) {
 			next(err)

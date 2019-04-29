@@ -54,6 +54,13 @@ app.use('/tools', toolController)
 app.use('/comments', commentController)
 app.use('/auth', authController);
 
+// set default root // 
+app.get('/', (req, res, next) => {
+	res.render('/auth/login')
+});
+// set default root // 
+
+
 /// listener
 
 app.listen(3000, () => {

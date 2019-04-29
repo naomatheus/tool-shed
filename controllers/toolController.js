@@ -4,7 +4,8 @@ const router 			= express.Router();
 // const pathfinderUI 		= require('pathfinder-ui');
 const multer 			= require('multer');
 const upload 			= multer({dest: './uploads'});
-const fs 				= require('fs');	
+const fs 				= require('fs');
+const session 			= require('express-session');	
 /// node modules
 
 /// require tools model ///
@@ -15,26 +16,34 @@ const Comment = require('../models/comment.js');
 
 /// tools new route ///
 router.get('/new', (req, res) => {
-	res.render('tools/new.ejs')
+	// if user is not logged in, this route redirects to the login page
+	if (req.session.logged !== true){
+		res.send('not logged in \n go to localhost:3000/auth/login') 
+	} else if (req.session.logged === false) {
+		res.redirect('/auth/login')
+	} else {
+		res.render('tools/new.ejs')	
+	}
 })
 /// tools new route ///
 
 //// tools index route /// 
 router.get('/', async (req, res) => {
-	try {
 
-		const foundTools = await Tool.find({});
-		// tool should be displayed with it's image in the tools index
-		console.log('====================');
-		console.log(`${foundTools} <===== has been found in the TOOL INDEX GET ROUTE`);
-		console.log('====================');
-		res.render('tools/index.ejs', {
-			tools: foundTools
-		})
+		try {
 
-	} catch (err){
-		res.send(err)
-	}
+			const foundTools = await Tool.find({});
+			// tool should be displayed with it's image in the tools index
+			console.log('====================');
+			console.log(`${foundTools} <===== has been found in the TOOL INDEX GET ROUTE`);
+			console.log('====================');
+			res.render('tools/index.ejs', {
+				tools: foundTools
+			})
+
+		} catch (err){
+			res.send(err)
+		}
 })	
 //// tools index route /// 
 
@@ -150,7 +159,7 @@ router.post('/', upload.single('imageData'), async (req, res, next) => {
 		console.log('THIS IS THE USER ID FOR THIS SESSION___________________');
 		console.log(req.session.usersDbId);
 		console.log('THIS IS THE USER ID FOR THIS SESSION___________________');
-		const foundUser = await User.findOne(req.session.usersDbId)
+		const foundUser = await User.findOne({_id:req.session.usersDbId})
 		console.log('THIS IS FOUND USER BY THE QUERY');
 
 		console.log(foundUser);
