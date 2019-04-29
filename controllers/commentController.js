@@ -13,18 +13,26 @@ const Tool = require('../models/tool.js');
 /// require comments model ///
 
 /// comment new route ///
-router.get('/:toolId/new', (req, res) => {
-	const tool = Tool.findById({_id: req.params.id});
+router.get('/:toolId/new', async (req, res, next) => {
 
-	///may want to change this object reference
+	try {
+		const tool = await Tool.findById(req.params.toolId);
 
-	console.log('----------------');
-	console.log('this is the tool in comment new route');
-	console.log(tool);
-	console.log('----------------');
-	res.render('comments/new.ejs', {
-		tool: Tool
-	})	
+		///may want to change this object reference
+
+		console.log('----------------');
+		console.log('this is the tool in comment new route');
+		console.log(tool);
+		console.log('----------------');
+		res.render('comments/new.ejs', {
+			tool: tool
+		})	
+
+	}
+	catch(err) {
+		next(err)
+	}
+
 });
 		//// if this doesn't work we'll have to query the tool id from the parameter
 		//// that we have in the root
@@ -34,23 +42,27 @@ router.get('/:toolId/new', (req, res) => {
 
 
 //// INDEX GET ROUTE ///
-router.get('/', async (req, res) => {
+router.get('/', async (req, res, next) => {
 	try {
 		const foundComments = await Comment.find({});
 		console.log('=============');
 		console.log(`${foundComments}, <====== has been found in the COMMENT INDEX GET ROUTE`);
 		console.log('=============');
+		
+
+
 		res.render('comments/index.ejs', {
-			comments: foundComments
+			comments: foundComments,
+
 		})
 	} catch (err) {
-		res.send(err)
+		next(err)
 	}
 })
 //// END OF INDEX GET ROUTE ///
 
 //// SHOW GET ROUTE /// 
-router.get('/:id', async (req, res) => {
+router.get('/:id', async (req, res, next) => {
 	try {
 		const foundComment	= Comment.findById({_id: req.params.id});	
 		console.log('=============');
@@ -60,14 +72,14 @@ router.get('/:id', async (req, res) => {
 			comment: foundComment
 		})
 	} catch (err) {
-		res.send(err)
+		next(err)
 	}
 })
 //// END OF SHOW GET ROUTE /// 
 
 //// COMMENT EDIT GET ROUTE ////
 
-router.get('/:id/edit', async (req, res) => {
+router.get('/:id/edit', async (req, res, next) => {
 	try {
 		const foundComment = await Comment.findByIdAndUpdate({_id: req.params.id});
 		console.log('=============');
@@ -77,32 +89,29 @@ router.get('/:id/edit', async (req, res) => {
 			comment: foundComment 
 		});
 	} catch (err) {
-		res.send(err)
+		next(err)
 	}	
 });
 //// COMMENT EDIT GET ROUTE ////
 
 //// CREATE/POST ROUTE ///// 
-router.post('/:toolId', async (req, res, next) => {
-
+router.post('/tools/:id', async (req, res, next) => { console.log("\nreq.body in comment create route:", req.body);
+	console.log();
 	try {
 		const createdComment = await Comment.create(req.body);
 		///here we are trying to reference the tool object by ID and push a comment from the comment array///
-		Tool.findById({_id: req.params.id})
 
-		.push(createdComment);
+		const foundTool = await Tool.findById(req.params.id);/*.push(createdComment);*/
+		const placeForComment = foundTool.comments
+		console.log("\nplaceForComment");
+		console.log(placeForComment);
+		placeForComment.push(createdComment)
+		await foundTool.save()
 
-		// const foundTool = Tool.findById(id)
-		// .populate('comments').exec();
+		// Tool.findById( req.params.id)/*.push(createdComment);*/
 
-		
-		///if doesn't work reference toolID
 
-		console.log('========================');
-		console.log(req.file);
-		console.log('this is req.file^^');
-		console.log('=============');
-		res.redirect('/tools/:id');
+		res.redirect('/tools/' + req.params.id);
 		// res.redirect('/comments')
 	} catch (err) {
 		next(err);
@@ -140,10 +149,9 @@ router.delete('/:id', async (req, res) => {
 	} catch (err) {
 		res.send(err)
 	}
-})
-
+});
 ///// END OF DELETE ROUTE /// 
-///THIS IS A COMMENT ON THE COMMENT CONTROLLER///
+
 
 //// export router
 

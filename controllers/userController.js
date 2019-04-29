@@ -6,6 +6,7 @@ const methodOverride 	= require('method-override');
 const bodyParser 		= require('body-parser');
 const ejs 				= require('ejs');
 const pathfinderUI 		= require('pathfinder-ui');
+const session 			= require('express-session');
 
 ////WE NEED LOGIC HERE TO STATE THAT ONLY LOGGED IN SUPERUSERS (CLAYTON/MATT) CAN ACCESS THIS
 ///ENTIRE TREE.
@@ -58,18 +59,26 @@ router.get('/:id', async (req, res) => {
 
 
 
-/// EDIT GET ROUTE ////
-router.get('/:id/edit', async (req, res) => {
+/// EDIT (GET) ROUTE ////
+router.get('/:id/edit', async (req, res, next) => {
 	try{
-		const foundUser = await User.findByIdAndUpdate({_id: req.params.id});
-		console.log("===========");
-		console.log(`${foundUser} <=========== has been found in the USER EDIT/UPDATE GET ROUTE!!!`);
-		console.log("===========");
-		res.render('users/edit.ejs', {
-			user: foundUser
-		});
+		// get userId from session
+		// if(diff id ) {
+		// 	redirect: hell no
+		// } else {
+			const foundUser = await User.findByIdAndUpdate(req.params.id, {});
+			console.log("===========");
+			console.log(`${foundUser} <=========== has been found in the USER EDIT/UPDATE GET ROUTE!!!`);
+			console.log("===========");
+			res.render('users/edit.ejs', {
+				user: foundUser
+			});
+
+		// }
+
+		
 	}catch(err){
-		res.send(err);
+		next(err);
 	}
 });
 /// END OF EDIT GET ROUTE ////
