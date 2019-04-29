@@ -5,9 +5,14 @@
 ## GOALS 4-29-19
 
 - User should have the option of changing the image posted with their tool post
-- 
 - think about the user flow 
 - Styling
+- copy writing
+-- user stories on the home page
+-- user stories on other pages
+-- Tools create new Page offers some guidance about what to put in the description
+-- The user who post a comment has their name attached to the comment they posted (you can see who posted which comments)
+- NEW TOOL CREATE Page offers some explanation of the benefits of using the service, general considerations, etiquette, etc.
 
 
 -~~Link the User and Auth controllers, so that the User model is only created and or access after authentication~~
@@ -79,13 +84,13 @@ MORNING
 - User can register and create a new profile by entering their username, password, and having a unique combination of the two
 
 #### NEW TOOL CREATE PAGE
-- User can create a new tool to be added to the index by entering the Type of tool, details about it, general availability, and location by zip code 
+- User can create a new tool to be added to the index by entering the Type of tool, details about it
 - Page offers some guidance about what to put in the description
 - New tool gets added to the index of tools
 
 #### TOOL INDEX PAGE 
 - User can see a display of all tools created on the site by people who want to share/offer them
-- Page displays truncated details of the tools
+- Page displays paginated details of the tools
 - User can click one of the listings and be taken to the detail's page of that
 
 #### TOOL DETAILS PAGE (SHOW)
@@ -102,8 +107,6 @@ MORNING
 
 
 ##### Stretch goals
-- NEW TOOL CREATE Page offers some explanation of the benefits of using the service, general considerations, etiquette, etc.
-- TOOL INDEX limits the number of tools displayed and allows user to cycle to truncated pages
-- User can see image of tool (uploaded by the user)
-- The user who post a comment has their name attached to the comment they posted (you can see who posted which comments)
+~~- User can see image of tool (uploaded by the user)~~
 - if a non-logged in user posts comments, then they show as "Anonymous"
+- pagination on tools index page 
