@@ -2,9 +2,25 @@
 ## Find the tools you need....instantly
 
 
+## GOALS 4-28-19
+
+
+- Link the User and Auth controllers, so that the User model is only created and or access after authentication.
+-- User should only be able to post tools and comments when logged in.
+
+
+
+- Implement populate in Tools index to show owner information
+- Implement populate in Tools show to show even more owner information
+- debug stuff s
+
+Afternoon
+- think about the user flow 
+- do some bootstrap stuff
+- Add a logout button to the nav bar if they're logged in. Can be some EJS logic (if logged in, show logout; else show login and register)
+
 ## GOALS 4-27-19
 
-- Images and buffer data type added to tools show page
 - Implement populate in Tools index to show owner information
 - Implement populate in Tools show to show even more owner information
 - debug stuff 
@@ -16,6 +32,7 @@ Afternoon
 
 - Decide how we think we wanna style it **WORKING**
 - do some styling stuff **WORKING**
+~~Images and buffer data type added to tools show page~~
 
 ## GOALS 4-26-19 
 

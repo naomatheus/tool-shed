@@ -90,7 +90,7 @@ router.post('/:toolId', async (req, res, next) => {
 		///here we are trying to reference the tool object by ID and push a comment from the comment array///
 		Tool.findById({_id: req.params.id}).push(createdComment);
 
-		const foundTool = Tool.findById({toolId: req.params.id})
+		const foundTool = Tool.findById(id)
 		.populate('comments').exec();
 
 		
