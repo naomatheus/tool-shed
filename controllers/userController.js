@@ -109,7 +109,7 @@ router.delete('/:id', async (req, res) => {
 		console.log('=============');
 		console.log(`${deletedUser} <========== this user will be deleted in the USER DELETE ROUTE!!!`);
 		console.log('=============');
-		res.redirect('/users');
+		// res.redirect('/users');
 	}catch(err){
 		res.send(err);
 	}
