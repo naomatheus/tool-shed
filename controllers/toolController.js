@@ -96,10 +96,10 @@ router.get('/:id', async (req, res) => {
 		const foundTool = await Tool.findById({_id: req.params.id})
 		.populate('comments')
 		.exec()
-		;
-		console.log('=====================');
-		console.log(`${foundTool} <======= tool has hit the TOOL SHOW GET ROUTE!!`);
-		console.log('=====================');
+		// ;
+		// console.log('=====================');
+		// console.log(`${foundTool} <======= tool has hit the TOOL SHOW GET ROUTE!!`);
+		// console.log('=====================');
 		res.render('tools/show.ejs', {
 			tool: foundTool
 		});
