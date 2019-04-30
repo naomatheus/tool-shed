@@ -26,7 +26,6 @@ app.use(methodOverride('_method'));
 app.use(bodyParser.urlencoded({extended: false}));
 
 
-
 // app.use('/pathfinder', function(req, res, next){
 //     pathfinderUI(app)
 //     next()
