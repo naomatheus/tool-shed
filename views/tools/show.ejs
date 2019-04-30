@@ -8,9 +8,9 @@
 	<img src='/tools/<%=tool._id%>/picture' />
 
 	<ul id="toolShowUL">
-		<li><%=tool.typeOfTool%></li>
+		Type of Tool: <li><%=tool.typeOfTool%></li>
 		<br>
-		<li><%=tool.description%></li>
+		Description: <li><%=tool.description%></li>
 		<br>
 		<li><%=tool.timePosted%></li>
 	</ul>
@@ -24,11 +24,11 @@
 
 	<div id='commentDiv'>
 		<%tool.comments.forEach((comment, i) => {%>
-			<p class='commentElement'><strong> whenCommentPosted : </strong> <%=tool.comments[i].whenCommentPosted%></p>
+			<p class='commentElement'><strong> whenCommentPosted : </strong> <%=comment.whenCommentPosted%></p>
 			<br/>
-			<p class='commentElement'><strong>commentAuthor :</strong> <%=tool.comments[i].commentAuthor%></p>
+			<p class='commentElement'><strong>commentAuthor :</strong> <%=comment.commentAuthor%></p>
 			<br/>
-			<p class='commentElement'><strong>Comment body:</strong> <%=tool.comments[i].commentBody%></p>
+			<p class='commentElement'><strong>Comment body:</strong> <%=comment.commentBody%></p>
 			<br/>
 			
 			
