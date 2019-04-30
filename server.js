@@ -17,10 +17,6 @@ const PORT = process.env.PORT
 
 ////// node modules //// 
 
-require('dotenv').config();
-
-const PORT = process.env.PORT
-
 /// require db ///
 require('./db/db.js');
 /// require db ///
