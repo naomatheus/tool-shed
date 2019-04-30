@@ -4,7 +4,7 @@ const router 			= express.Router();
 const methodOverride 	= require('method-override');
 const bodyParser 		= require('body-parser');
 const ejs 				= require('ejs');
-const pathfinderUI 		= require('pathfinder-ui');
+// const pathfinderUI 		= require('pathfinder-ui');
 /// node modules
 
 /// require comments model ///
