@@ -1,22 +1,35 @@
 body{
 	background-image: url(https://www.construct-ed.com/wp-content/uploads/2016/10/9-awesome-tools-for-leading-successful-construction-companies-post-hero-compressor.jpg);
 	background-size: cover;
+	font-family: 'Oswald', sans-serif;
 }
 
 h2{
-	color: magenta;
+	color: rgb(20,230,200);
+	font-family: 'ZCOOL KuaiLe', cursive;
+}
+
+h1{
+	color: rgb(20,230,200);
+	font-family: 'ZCOOL KuaiLe', cursive;
+}
+
+h3{
+	color: rgb(20,230,200);
+	font-family: 'Oswald', sans-serif;
 }
 
 a{
 	color: rgb(255,0,0);
+	font-family: 'ZCOOL KuaiLe', cursive;
 }
 
 ul{
-	color: rgb(20,230,200);
+	color: rgb(255,0,0);
 }
 
 form{
-	color: rgb(20,230,200);
+	color: rgb(255,0,0);
 }
 
 nav{
@@ -24,20 +37,26 @@ nav{
 	flex-direction: row;
 	justify-content: space-around;
 	color: rgb(255,0,0);
+	font-family: 'ZCOOL KuaiLe', cursive;
 }
 
 footer{
 	display: flex;
 	justify-content: center;
 	color: rgb(20,230,200);
+	font-family: 'ZCOOL KuaiLe', cursive;
 }
 
 small{
 	color: rgb(255,0,0);
 }
 
+#registerForm{
+	text-align: center;
+}
+
 #commentDiv{
-	color: rgb(250,230,30);
+	color: rgb(20,230,200);
 }
 
 
@@ -56,16 +75,18 @@ small{
 }
 
 #loginPageContainer{
-	/*display: flex;*/
+	text-align: center;
 
 }
 
 #loginDiv{
-	display: flex;
-	justify-content: space-around;
+	text-align: center;
 }
 
 #authLogin{
-/*	flex-direction: column;*/
-	/*justify-content: space-around;*/
+	margin-left: 50px;
+}
+
+#authLogin button{
+	margin-left: 60px;
 }
