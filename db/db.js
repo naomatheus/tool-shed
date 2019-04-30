@@ -2,7 +2,7 @@ const mongoose = require('mongoose');
 
 const connectionString = 'mongodb://localhost/toolshed';
 
-mongoose.connect(connectionString, {
+mongoose.connect(process.env.MONGODB_URI, {
 	useNewUrlParser: true,
 	useCreateIndex: true,
 	useFindAndModify: false
