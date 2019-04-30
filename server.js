@@ -10,12 +10,11 @@ const session 			= require('express-session');
 const multer  			= require('multer')
 const upload 			= multer({ dest: 'uploads/' });
 const fs 				= require('fs');
-<<<<<<< HEAD
-=======
+
 // use dot env 
 require('dotenv').config();
 const PORT = process.env.PORT
->>>>>>> 94ab69aaf75b0e57dce71c7912f8df24b16fbe96
+
 ////// node modules //// 
 
 require('dotenv').config();
@@ -33,10 +32,7 @@ app.use(methodOverride('_method'));
 app.use(bodyParser.urlencoded({extended: false}));
 
 
-<<<<<<< HEAD
 
-=======
->>>>>>> 94ab69aaf75b0e57dce71c7912f8df24b16fbe96
 // app.use('/pathfinder', function(req, res, next){
 //     pathfinderUI(app)
 //     next()
@@ -87,11 +83,7 @@ app.get('*', (req, res) => {
 
 /// listener
 
-<<<<<<< HEAD
-=======
 
-
->>>>>>> 94ab69aaf75b0e57dce71c7912f8df24b16fbe96
 app.listen(PORT, () => {
 	console.log(`LISTENING ON ${PORT}`);
 })
