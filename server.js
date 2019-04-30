@@ -10,7 +10,9 @@ const session 			= require('express-session');
 const multer  			= require('multer')
 const upload 			= multer({ dest: 'uploads/' });
 const fs 				= require('fs');
-
+// use dot env 
+require('dotenv').config();
+const PORT = process.env.PORT
 ////// node modules //// 
 
 /// require db ///
@@ -31,7 +33,7 @@ app.use('/pathfinder', function(req, res, next){
 }, pathfinderUI.router)
 
 app.use(session({
-	secret: 'It is a huuuge secret',
+	secret: process.env.SESSION_SECRET,
 	resave: false,
 	saveUninitialized: false,
 }));
@@ -71,8 +73,10 @@ app.get('/', (req, res, next) => {
 
 /// listener
 
-app.listen(3000, () => {
-	console.log('LISTENING ON 3000');
+
+
+app.listen(PORT, () => {
+	console.log(`LISTENING ON ${PORT}`);
 })
 
 
