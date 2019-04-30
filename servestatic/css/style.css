@@ -1,16 +1,71 @@
+body{
+	background-image: url(https://www.construct-ed.com/wp-content/uploads/2016/10/9-awesome-tools-for-leading-successful-construction-companies-post-hero-compressor.jpg);
+	background-size: cover;
+}
+
+h2{
+	color: magenta;
+}
+
+a{
+	color: rgb(255,0,0);
+}
+
+ul{
+	color: rgb(20,230,200);
+}
+
+form{
+	color: rgb(20,230,200);
+}
+
 nav{
 	display: flex;
 	flex-direction: row;
 	justify-content: space-around;
+	color: rgb(255,0,0);
 }
 
 footer{
 	display: flex;
 	justify-content: center;
+	color: rgb(20,230,200);
 }
 
 small{
 	color: rgb(255,0,0);
 }
 
+#commentDiv{
+	color: rgb(250,230,30);
+}
 
+
+#toolsIndexTitle{
+	text-align: center;
+}
+
+#userEditContainer{
+	text-align: center;
+	margin-top: 75px;
+}
+
+#userEditForm{
+	color: rgb(20,230,200);
+	text-align: center;
+}
+
+#loginPageContainer{
+	/*display: flex;*/
+
+}
+
+#loginDiv{
+	display: flex;
+	justify-content: space-around;
+}
+
+#authLogin{
+/*	flex-direction: column;*/
+	/*justify-content: space-around;*/
+}

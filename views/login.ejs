@@ -1,19 +1,24 @@
 	<%- include ./partials/header.ejs %>
 
 <!-- <title>Login To Toolshed</title> -->
-<h1>Login To Toolshed</h1>
-	<form action='/auth/login' method='POST'>
-		<input type="text" name="userName" placeholder='enter username'>
+<h2>Login To Toolshed</h2>
+<div id='logInPageContainer'>
+	<div id="logInDiv">
+		<form id="authLogin" action='/auth/login' method='POST'>
+			<input type="text" name="userName" placeholder='enter username'>
+			<br>
+			<br>
+			<input type="password" name="password" placeholder='6 digit password'>
+			<br>
+			<br>
+			<button type='submit'>Login</button>
+		</form>
 		<br>
 		<br>
-		<input type="password" name="password" placeholder='6 digit password'>
-		<br>
-		<br>
-		<button type='submit'>Login</button>
-	</form>
-	<br>
-	<a = href="/auth/register">Don't Have an Account? Register Here!</a>
+		<a = href="/auth/register">Don't Have an Account? Register Here!</a>
 
-	<small><%= message %></small>
+		<small><%= message %></small>
+	</div>	
+</div>
 
 <%- include ./partials/footer.ejs %>
