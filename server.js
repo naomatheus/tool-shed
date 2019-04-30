@@ -15,11 +15,7 @@ const fs 				= require('fs');
 require('dotenv').config();
 const PORT = process.env.PORT
 
-////// node modules //// 
-
-require('dotenv').config();
-
-const PORT = process.env.PORT
+////// node modules ////
 
 /// require db ///
 require('./db/db.js');
