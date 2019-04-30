@@ -5,7 +5,7 @@ const serveStatic 		= require('serve-static');
 const ejs 				= require('ejs');
 const bodyParser 		= require('body-parser');
 const methodOverride 	= require('method-override');
-const pathfinderUI 		= require('pathfinder-ui');
+// const pathfinderUI 		= require('pathfinder-ui');
 const session 			= require('express-session');
 const multer  			= require('multer')
 const upload 			= multer({ dest: 'uploads/' });
@@ -27,10 +27,10 @@ app.use(bodyParser.urlencoded({extended: false}));
 
 
 
-app.use('/pathfinder', function(req, res, next){
-    pathfinderUI(app)
-    next()
-}, pathfinderUI.router)
+// app.use('/pathfinder', function(req, res, next){
+//     pathfinderUI(app)
+//     next()
+// }, pathfinderUI.router)
 
 app.use(session({
 	secret: process.env.SESSION_SECRET,
