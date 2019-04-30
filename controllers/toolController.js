@@ -115,7 +115,7 @@ router.get('/:id', async (req, res) => {
 
 /// START OF EDIT GET ROUTE ///
 router.get('/:id/edit', async (req, res, next) => {
-	try{
+	try {
 		if (req.session.usersDbId !== res.locals.userId){
 			res.redirect('/')
 		} else {
