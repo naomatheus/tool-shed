@@ -1,7 +1,7 @@
 const express 			= require('express');
 const mongoose 			= require('mongoose');
 const router 			= express.Router();
-const pathfinderUI 		= require('pathfinder-ui');
+// const pathfinderUI 		= require('pathfinder-ui');
 const multer 			= require('multer');
 const upload 			= multer({dest: './uploads'});
 const fs 				= require('fs');
