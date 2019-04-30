@@ -25,7 +25,7 @@ a{
 }
 
 ul{
-	color: rgb(255,0,0);
+	color: rgb(20,230,200);
 }
 
 form{
@@ -49,6 +49,18 @@ footer{
 
 small{
 	color: rgb(255,0,0);
+}
+
+#commentDiv{
+	margin-left: 50px;
+}
+
+#newToolForm{
+	margin-left: 50px;
+}
+
+#toolIndexUl{
+	margin-left: 50px;
 }
 
 #registerForm{

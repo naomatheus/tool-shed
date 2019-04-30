@@ -3,7 +3,8 @@
 <div id='toolsIndexContainer'>	
 	<h1 id='toolsIndexTitle'>WELCOME TO TOOLSHED</h1>
 </div>
-	<ul>
+<div id="toolIndexUlContainer">
+	<ul id="toolIndexUl">
 		<% tools.forEach((tool) => { %>
 		<li><a href='/tools/<%=tool._id%>'><%=tool.typeOfTool%></li></a>
 		<li>Date/Time Posted: <%=tool.timePosted%></li>  
@@ -15,6 +16,8 @@
 
 		<% })%>
 	</ul>
+</div>
+
 
 
 <%- include ../partials/footer.ejs %>

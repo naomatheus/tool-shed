@@ -23,21 +23,16 @@
 
 
 	<div id='commentDiv'>
-		Here are the comment details
-		
 		<%tool.comments.forEach((comment, i) => {%>
 			<p class='commentElement'><strong> whenCommentPosted : </strong> <%=tool.comments[i].whenCommentPosted%></p>
 			<br/>
 			<p class='commentElement'><strong>commentAuthor :</strong> <%=tool.comments[i].commentAuthor%></p>
 			<br/>
-			
 			<p class='commentElement'><strong>Comment body:</strong> <%=tool.comments[i].commentBody%></p>
 			<br/>
 			
 			
-		<% }) %>	
-	
-		
+		<% }) %>
 
 	</div>
 	
