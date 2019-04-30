@@ -65,7 +65,7 @@ app.use('/comments', commentController)
 
 // set default root // 
 app.get('/', (req, res, next) => {
-	res.render('/auth/login')
+	res.redirect('/auth/login')
 });
 // set default root // 
 
