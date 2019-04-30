@@ -115,7 +115,7 @@ router.get('/:id', async (req, res) => {
 
 /// START OF EDIT GET ROUTE ///
 router.get('/:id/edit', async (req, res, next) => {
-	try{
+	try {
 		if (req.session.usersDbId !== res.locals.userId){
 			res.redirect('/')
 		} else {
@@ -140,9 +140,6 @@ router.get('/:id/edit', async (req, res, next) => {
 
 /// START OF CREATE/POST ROUTE ///
 router.post('/', upload.single('imageData'), async (req, res, next) => { 
-	console.log("HEY HI TOOLS POST HELLO")
-	console.log("\nhere is req.body:");
-	console.log(req.body);
 	try{
 
 
@@ -156,10 +153,6 @@ router.post('/', upload.single('imageData'), async (req, res, next) => {
 		console.log('this is createdTool.owner', createdTool.owner);
 		console.log('=====================');
 
-		console.log('====this is req.file=================');
-		console.log(req.file);
-		// console.log(`${req.file} <===== t`);
-		// console.log('=====================');
 		const img = {}
 		img.imageTitle = req.body.imageTitle;
 		img.imageDescription = req.body.imageDescription;
@@ -201,13 +194,28 @@ router.post('/', upload.single('imageData'), async (req, res, next) => {
 /// TOOL IMAGE ROUTE ///
 
 /// START OF EDIT PUT ROUTE ///
-router.put('/:id', async (req, res) => {
+router.put('/:id', upload.single('imageData'), async (req, res) => {
 	try{
+		// check if the image is part of req.file, find it, and if it is there modify the database query accordingly, and then pass it to multer to be reuploaded. 
+		const updatedToolImage = await Tool.findByIdAndUpdate(req.params.id, req.file, {new:true});
+		console.log('this is req.file ==============');
+		console.log(req.file);
+		console.log('==============');
+		const img = {}
+		img.imageTitle = req.body.imageTitle;
+		img.imageDescription = req.body.imageDescription;
+		img.contentType = req.file.mimetype
+		// filepath leads to /uploads according to multer set up SET AS './uploads/' because toolController is nested once 
+		const filePath = './' + req.file.path
+		img.data = fs.readFileSync(filePath);
+
 
 		const updatedTool = await Tool.findByIdAndUpdate(req.params.id, req.body, {new: true});
 		console.log('=====================');
 		console.log(`${updatedTool} <========== this tool hit the TOOL EDIT PUT ROUTE`);
 		console.log('=====================');
+		await updatedTool.save();
+		await updatedToolImage.save();
 		res.redirect('/tools/' + req.params.id);
 
 	}catch(err) {
