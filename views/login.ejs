@@ -2,22 +2,26 @@
 
 <!-- <title>Login To Toolshed</title> -->
 <h2>Login To Toolshed</h2>
-<div id='logInPageContainer'>
-	<div id="logInDiv">
-		<form id="authLogin" action='/auth/login' method='POST'>
-			Username: <input type="text" name="userName" placeholder='enter username'>
-			<br>
-			<br>
-			Password: <input type="password" name="password" placeholder='6 digit password'>
-			<br>
-			<br>
-			<button type='submit'>Login</button>
-		</form>
-		<br>
-		<small><%= message %></small>
-		<br>
-		<a = href="/auth/register">Don't Have an Account? Register Here!</a>
-		<br>
+<div class='container h-100'>
+	<div class="row h-100">
+		<!-- row h-100 justify-content-center align-items-center -->
+		<div class='col-12'>
+			<form id="authLogin" action='/auth/login' method='POST'>
+				<h6>Username: </h6>
+				<input type="text" name="userName" placeholder='enter username'>
+				
+				<h6>Password: </h6>
+				<input type="password" name="password" placeholder='6 digit password'>
+				
+				<button type='submit'>Login</button>
+			</form>
+			
+			<small><%= message %></small>
+			
+			<a href="/auth/register">Don't Have an Account? Register Here!</a>
+		</div>
+		
+
 	</div>	
 </div>
 

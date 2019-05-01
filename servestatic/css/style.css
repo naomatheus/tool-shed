@@ -1,44 +1,97 @@
 body{
 	background-image: url(https://www.construct-ed.com/wp-content/uploads/2016/10/9-awesome-tools-for-leading-successful-construction-companies-post-hero-compressor.jpg);
 	background-size: cover;
-	font-family: 'Oswald', sans-serif;
+	font-family: helvetica;
+}
+/*/// login stuff ////*/
+.outerContainer {
+
 }
 
-h2{
-	color: rgb(20,230,200);
-	font-family: 'ZCOOL KuaiLe', cursive;
+.container {
+	font-family: helvetica;
+	display: flex;
+	justify-content: center;
+	margin-top: 50px;
+	
 }
 
-h1{
-	color: rgb(20,230,200);
-	font-family: 'ZCOOL KuaiLe', cursive;
+.row /*h-100 justify-content-center align-items-center*/ {
+	background-color: green;
+	/*margin: 0 auto;*/
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	align-items: center;
+	padding: 75px;
 }
 
-h3{
-	color: rgb(20,230,200);
-	font-family: 'Oswald', sans-serif;
+#commentDiv,#newToolForm ,#toolIndexUl {
+	margin-left: 50px;
 }
 
-a{
-	color: rgb(255,0,0);
-	font-family: 'ZCOOL KuaiLe', cursive;
-}
-
-ul{
-	color: rgb(20,230,200);
-}
-
-form{
-	color: rgb(255,0,0);
-}
-
-nav{
+nav{ 
 	display: flex;
 	flex-direction: row;
 	justify-content: space-around;
 	color: rgb(255,0,0);
+	font-family: helvetica;
+	font-size: 24px;
+}
+
+.mx-auto {
+	padding: 50px;
+}
+
+ form, button{
+ 	display: flex;
+ 	flex-direction: column;
+ 	justify-content: center;
+	margin: 0 auto;
+}
+
+///////////////FORMS///////////////*/
+
+
+/*#registerForm,*/ #toolsIndexTitle{
+	text-align: center;
+}
+
+#commentDiv{
+	color: rgb(20,230,200);
+}
+/*COMMENTS PAGES*/
+
+#userEditContainer{
+	text-align: center;
+	margin-top: 75px;
+}
+
+#userEditForm{
+	color: rgb(20,230,200);
+	text-align: center;
+}
+/*///////////////FORMS///////////////*/
+
+/*////////////headers////////////*/
+h1, h2, h3{
+	color: rgb(20,230,200);
 	font-family: 'ZCOOL KuaiLe', cursive;
 }
+
+/*a, ul{
+	color: rgb(255,0,0);
+	font-family: 'ZCOOL KuaiLe', cursive;
+}*/
+
+/*form{
+	display: flex;
+	flex-direction: row;
+	justify-content: center;
+	/*color: rgb(255,0,0);*/
+/*}*/
+
+
 
 footer{
 	display: flex;
@@ -51,54 +104,6 @@ small{
 	color: rgb(240,230,30);
 }
 
-#commentDiv{
-	margin-left: 50px;
-}
-
-#newToolForm{
-	margin-left: 50px;
-}
-
-#toolIndexUl{
-	margin-left: 50px;
-}
-
-#registerForm{
-	text-align: center;
-}
-
-#commentDiv{
-	color: rgb(20,230,200);
-}
 
 
-#toolsIndexTitle{
-	text-align: center;
-}
 
-#userEditContainer{
-	text-align: center;
-	margin-top: 75px;
-}
-
-#userEditForm{
-	color: rgb(20,230,200);
-	text-align: center;
-}
-
-#loginPageContainer{
-	text-align: center;
-
-}
-
-#loginDiv{
-	text-align: center;
-}
-
-#authLogin{
-	margin-left: 50px;
-}
-
-#authLogin button{
-	margin-left: 60px;
-}

@@ -2,6 +2,11 @@
 ## Find the tools you need....instantly
 
 
+# CSS / CODE Highlights
+
+Bootstrap Responsive meta tag
+
+
 ## GOALS 4-29-19
 
 - User should have the option of changing the image posted with their tool post
