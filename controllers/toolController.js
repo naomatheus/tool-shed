@@ -187,12 +187,6 @@ router.post('/', upload.single('imageData'), async (req, res, next) => {
 });
 /// START OF CREATE/POST ROUTE ///
 
-/// TOOL IMAGE ROUTE ///
-// router.post('/', upload.single('imageData'), async (req, res, next) => {
-			
-// 		})
-
-/// TOOL IMAGE ROUTE ///
 
 /// START OF EDIT PUT ROUTE ///
 router.put('/:id', upload.single('imageData'), async (req, res, next) => {
