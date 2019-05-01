@@ -8,27 +8,31 @@
 	<h2> Here is, <%=user.userName%>'s Account</h2>
 	<%}%>
 	<%if (canEdit){ %>
-<div id="userEditContainer">
-	<form id="userEditForm" action="/users/<%=user._id%>?_method=PUT" method="POST">
-		Username: <input type="text" name="userName" value="<%=user.userName%>" placeholder="<%=user.userName%>"/>
-		<br>
-		<br>
-		Email: <input type="email" name="email" value="<%=user.email%>" placeholder="<%=user.email%>"/>
-		<br>
-		<br>
-		<button type="submit">SUBMIT</button>
-	</form>
-		<br>
-	<form action='/users/<%=user._id%>?_method=DELETE' method='POST'>
-		<button type='submit'>DELETE USER</button>
-	</form>
-</div>	
-	<% } else { %>
-	<ul>
-		<li><%=user.userName%></li>
-		<li><%=user.email%></li>
-	</ul>
+<div id="container">
+	<div class="row">
+		<div class="col-12">
+			<form id="userEditForm" action="/users/<%=user._id%>?_method=PUT" method="POST">
+				<h6> Username: </h6> <input type="text" name="userName" value="<%=user.userName%>" placeholder="<%=user.userName%>"/>
+				
+				<h6> Email: </h6> <input type="email" name="email" value="<%=user.email%>" placeholder="<%=user.email%>"/>
+				
+				<button type="submit">SUBMIT</button>
+			</form>
+				
 
-	<%}%>
+			<form action='/users/<%=user._id%>?_method=DELETE' method='POST'>
+				<button type='submit'>DELETE USER</button>
+			</form>
+
+			<% } else { %>
+			<ul>
+				<h6> Name: <%=user.userName%></h6>
+				<h6> Email: <%=user.email%></h6>
+			</ul>
+
+			<%}%>
+		</div>
+	</div>
+</div>	
 
 <%- include ../partials/footer.ejs %>

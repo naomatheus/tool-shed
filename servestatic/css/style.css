@@ -104,6 +104,17 @@ img {
 	margin-top: 75px;
 	background-color: rgba(115,37,18,.85);
 }
+
+#noEdit {
+	color: white;
+	display: flex;
+	flex-direction: column;
+	justify-content: space-around;
+	align-content: space-between;
+	margin: 75px;
+	padding: 25px;
+	background-color: rgba(115,37,18,.85);
+}
 /*COMMENTS PAGES*/
 
 #userEditContainer{

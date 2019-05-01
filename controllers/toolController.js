@@ -198,6 +198,9 @@ router.post('/', upload.single('imageData'), async (req, res, next) => {
 router.put('/:id', upload.single('imageData'), async (req, res, next) => {
 	console.log("\nreq.file");
 	console.log(req.file);
+	if (!req.file){
+		res.send('Sorry, you must upload an image when updating. Press BACK and try again.')
+	}
 	try{
 		console.log(req.session.username);
 		

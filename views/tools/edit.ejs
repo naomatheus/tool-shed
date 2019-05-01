@@ -6,42 +6,50 @@
 
 	<h1>Tools Edit Page</h1>
 	<%if (canEdit){%>
+<div class="container">
+	<div class="row">
+		<div class="col-12">
+			<form id="toolEditForm" action="/tools/<%=tool._id%>?_method=PUT" enctype='multipart/form-data' method="POST">
 
-	<form id="toolEditForm" action="/tools/<%=tool._id%>?_method=PUT" enctype='multipart/form-data' method="POST">
+				<h6> Type of Tool: </h6><input type="text" name="typeOfTool" value="<%=tool.typeOfTool%>" placeholder="<%=tool.typeOfTool%>"/>
+				<br>
+				<br>
 
-		Type of Tool: <input type="text" name="typeOfTool" value="<%=tool.typeOfTool%>" placeholder="<%=tool.typeOfTool%>"/>
-		<br>
-		<br>
+				<h6> Description: </h6><input type="text" name="description" value="<%=tool.description%>" placeholder="<%=tool.description%>"/>
+				<br>
 
-		Description: <input type="text" name="description" value="<%=tool.description%>" placeholder="<%=tool.description%>"/>
-		<br>
+				<h6> Update Image: </h6><input type="file" name="imageData" value='<%=tool.toolImage%>'><br>
 
-		Update Image: <input type="file" name="imageData" value='<%=tool.toolImage%>'><br>
+				<h6> Title of Image: </h6><input type="text" name="imageTitle" value='<%=tool.toolImage.imageTitle%>'><br>
 
-		Title of Image: <input type="text" name="imageTitle" value='<%=tool.toolImage.imageTitle%>'><br>
+				<h6> Image description: </h6><input type="text" name="imageDescription" value='<%=tool.toolImage.imageDescription%>'>
+				
+				<br>
+				<button type="submit">UPDATE TOOL</button>
+				<br>
+				<br>
+			</form>	
+			<form action='/tools/<%=tool._id%>?_method=DELETE' method='POST'>
+				<button type='submit'>DELETE TOOL</button>
+			</form>
+				<br>
+			<%} else {%>
+			<h3>YOU HAVE NOT POSTED THIS TOOL AND CANNOT EDIT IT</h3>
+			
+				<div id='noEdit'>
+					<h6> Type of Tool: <%=tool.typeOfTool%></h6>
+					<br/>
+					<h6> Description: <%=tool.description%></h6>
+				</div>
 
-		Image description: <input type="text" name="imageDescription" value='<%=tool.toolImage.imageDescription%>'>
-		
-		<br>
-		<button type="submit">UPDATE TOOL</button>
-		<br>
-		<br>
-	</form>	
-	<form action='/tools/<%=tool._id%>?_method=DELETE' method='POST'>
-		<button type='submit'>DELETE TOOL</button>
-	</form>
-		<br>
-	<%} else {%>
-	<h3>YOU HAVE NOT POSTED THIS TOOL AND CANNOT EDIT IT</h3>
-	<ul>
-		<li><%=tool.typeOfTool%></li>
-		<li><%=tool.description%></li>
-	</ul>
+			<%}%>
+			<br>
+			<br>
+			<br>
+		</div>
+	</div>
+</div>
 
-	<%}%>
-	<br>
-	<br>
-	<br>
 
 <%- include ../partials/footer.ejs %>
 
