@@ -95,6 +95,7 @@ router.get('/:id', async (req, res) => {
 	try{
 		const foundTool = await Tool.findById({_id: req.params.id})
 		.populate('comments')
+		.populate('owner')
 		.exec()
 		// ;
 		// console.log('=====================');

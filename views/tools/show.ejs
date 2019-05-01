@@ -3,32 +3,38 @@
 <%- include ../partials/header.ejs %>
 <title>Tools Show Page</title>
 
-	<h2><%=tool.typeOfTool%>'s Page</h2>
-
-	<img src='/tools/<%=tool._id%>/picture' />
+<h2><%=tool.typeOfTool%>'s Page</h2>
+<div class="containerShow">
+	<div id='toolListing'>
+		<img id='showImg' src='/tools/<%=tool._id%>/picture' />
 	
-	<ul id="toolShowUL">
-		Type of Tool: <li><%=tool.typeOfTool%></li>
-		<br>
-		Description: <li><%=tool.description%></li>
-		<br>
-		<li><%=tool.timePosted%></li>
-	</ul>
-		<br>
-		<a href="/tools/<%=tool._id%>/edit">EDIT TOOL</a>
-		<br>
+		
+			<h4>Type of Tool: <%=tool.typeOfTool%></h4>
+			
+			<h4>Description: <%=tool.description%></h4>
+			
+			<h4>Time Stamp: <%=tool.timePosted%></h4>
+		
+			<h4>Contact Owner: <a href='/users/<%=tool.owner._id%>'> <%=tool.owner.userName%></a>
+			
+			<a href="/tools/<%=tool._id%>/edit">EDIT TOOL</a>
+			
+	</div>
+</div>
+
+
 		<a href="/comments/<%=tool._id%>/new">LEAVE A COMMENT ABOUT THIS TOOL</a>
 
 			<!-- THIS WORKS ^^^ DO NOT FUCK WITH IT ^^^ -->
 
 
-	<div id='commentDiv'>
+	<div class='commentContainer'>
 		<%tool.comments.forEach((comment, i) => {%>
-			<p class='commentElement'><strong> whenCommentPosted : </strong> <%=comment.whenCommentPosted%></p>
+			<p class='commentElement'><strong> Time Posted : </strong> <%=comment.whenCommentPosted%></p>
 			<br/>
-			<p class='commentElement'><strong>commentAuthor :</strong> <%=comment.commentAuthor%></p>
+			<p class='commentElement'><strong> Comment Author :</strong> <%=comment.commentAuthor%></p>
 			<br/>
-			<p class='commentElement'><strong>Comment body:</strong> <%=comment.commentBody%></p>
+			<p class='commentElement'><strong> Comment:</strong> <%=comment.commentBody%></p>
 			<br/>
 			
 			

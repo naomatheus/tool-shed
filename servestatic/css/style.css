@@ -14,7 +14,29 @@ html, body{
 	display: flex;
 	justify-content: center;
 	margin-top: 75px;
-	
+}
+
+.containerShow {
+	font-family: helvetica;
+	display: flex;
+	justify-content: center;
+	margin-top: 10px;
+	margin-bottom: 50px;
+}
+
+#toolListing {
+	color: white;
+	display: flex;
+	flex-direction: column;
+	justify-content: space-around;
+	align-content: baseline;
+	margin-top: 75px;
+	background-color: rgba(115,37,18,.85);
+}
+
+ .toolDescription {
+	font-size: 24px;
+	margin: 5px 5px 10px 0px;
 }
 
 .row  {
@@ -27,7 +49,14 @@ html, body{
 	padding: 75px;
 }
 
-#commentDiv,#newToolForm ,#toolIndexUl {
+.toolIndexUlContainer {
+	display: flex;
+	justify-content: center;
+	flex-wrap: wrap;
+
+}
+
+#commentDiv,#newToolForm {
 	margin-left: 50px;
 }
 
@@ -57,13 +86,23 @@ input, a {
 	margin: 10px;
 }
 
-
-/*#registerForm,*/ #toolsIndexTitle{
-	text-align: center;
+img {
+	height: 200px;
+	width: 200px;
 }
 
-#commentDiv{
-	color: rgb(20,230,200);
+#showImg {
+	align-self: center;
+}
+
+.commentContainer {
+	color: white;
+	display: flex;
+	flex-direction: column;
+	justify-content: space-around;
+	align-content: space-between;
+	margin-top: 75px;
+	background-color: rgba(115,37,18,.85);
 }
 /*COMMENTS PAGES*/
 
@@ -83,20 +122,6 @@ h1, h2, h3{
 	color: rgb(20,230,200);
 	font-family: 'ZCOOL KuaiLe', cursive;
 }
-
-/*a, ul{
-	color: rgb(255,0,0);
-	font-family: 'ZCOOL KuaiLe', cursive;
-}*/
-
-/*form{
-	display: flex;
-	flex-direction: row;
-	justify-content: center;
-	/*color: rgb(255,0,0);*/
-/*}*/
-
-
 
 footer{
 	display: flex;
