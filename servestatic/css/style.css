@@ -24,7 +24,7 @@ html, body{
 	margin-bottom: 50px;
 }
 
-#toolListing {
+#toolListing, #toolIndexUserStory {
 	color: white;
 	display: flex;
 	flex-direction: column;
@@ -195,4 +195,16 @@ button {
 #centerHead {
 	text-align: center;
 }
+
+#toolIndexUserStory{
+	display: flex;
+	flex-direction: row;
+	justify-content: center;
+	color: rgba(242, 133, 109, 1);
+	font-size: 1.5rem;
+	padding: 20px;
+	margin: 2.5 auto;
+}
+
+
 
