@@ -3,17 +3,19 @@
 <%- include ../partials/header.ejs %>
 
 <title>User Show Page</title>
+<div class="container-fluid">
+	
 
-	<h2><%=user.userName%>'s Account</h2>
+	<div id="toolListing">
+		<h2><%=user.userName%>'s Account</h2>
 
-	<ul id="userShowUL">
-		<li>username: <%=user.userName%></li>
-		<br>
-		<li>email: <%=user.email%></li>
-	</ul>
-		<br>
-		<br>
-		<br>
-		<br>
+		Use this informaton to contact the owner of this tool!
+		<ul id="userShowUL">
+			<li>username: <%=user.userName%></li>
+			<br>
+			<li>email: <%=user.email%></li>
+		</ul>
 		<a href="/users/<%=user._id%>/edit">EDIT USER</a>
+	</div>
+</div>
 <%- include ../partials/footer.ejs %>

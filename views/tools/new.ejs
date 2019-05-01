@@ -4,28 +4,28 @@
 <%- include ../partials/header.ejs %>
 <title>Tools New/Create Page</title>
 
-<body>
-	<h2>Post a New Tool</h2>
-
-		<form id='newToolForm'action="/tools" enctype='multipart/form-data' method="POST">
-			<br>
-			Time Posted: <input type="date" name="timePosted" placeholder='format: dd/mm/yyyy'/>
-			<br>
-			Type of Tool: <input type="text" name="typeOfTool"/>
-			<br>
-			Description: <input type="text" name="description"><br/>
-
-
-			Upload Image: <input type="file" name="imageData"><br/>
-			Title of Image: <input type="text" name="imageTitle"><br/>
-			Image description: <input type="text" name="imageDescription"/>
+<h2>Post a New Tool</h2>
+<div class="container">
+	<div class="row">
+		<div class="col-12">
+			<form id='newToolForm'action="/tools" enctype='multipart/form-data' method="POST">
+				<br>
+				Time Posted: <input type="date" name="timePosted" placeholder='format: dd/mm/yyyy'/>
+				<br>
+				Type of Tool: <input type="text" name="typeOfTool"/>
+				<br>
+				Description: <input type="text" name="description"><br/>
 
 
+				Upload Image: <input type="file" name="imageData"><br/>
+				Title of Image: <input type="text" name="imageTitle"><br/>
+				Image description: <input type="text" name="imageDescription"/>
 
-			<button>POST TOOL</button>
-		</form>
-		<br/>
-
+				<button>POST TOOL</button>
+			</form>
+		</div>
+	</div>
+</div>	
 <!-- INSTEAD ADDING IMAGE DATA STUFF TO SAME FORM -->
 
 <!-- Form specifically for uploading tool images -->

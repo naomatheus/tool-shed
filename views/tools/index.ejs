@@ -1,18 +1,21 @@
 <%- include ../partials/header.ejs %>
 <title>Tools Index Page</title>
-<div id='toolsIndexContainer'>	
-	<h1 id='toolsIndexTitle'>WELCOME TO TOOLSHED</h1>
+<div class='container'>	
+	<h1>WELCOME TO TOOLSHED</h1>
 </div>
-<div id="toolIndexUlContainer">
+<div class="toolIndexUlContainer">
 	<ul id="toolIndexUl">
 		<% tools.forEach((tool) => { %>
-		<li><a href='/tools/<%=tool._id%>'><%=tool.typeOfTool%></li></a>
-		<li>Date/Time Posted: <%=tool.timePosted%></li>  
-		<li>Tool Type: <%=tool.typeOfTool%></li> 
-		<li>Description: <%=tool.description%></li> 
-		<li>Owner: <a href='/users/<%=tool.owner._id%>'><%=tool.owner.userName%></a></li>
-		<li><img src='/tools/<%=tool._id%>/picture' /></li>
-		<br>
+		<li>
+		<div id='toolListing'>
+			<h2><a href='/tools/<%=tool._id%>'><%=tool.typeOfTool%></a></h2>
+			<h6>Date/Time Posted: <%=tool.timePosted%></h6>  
+			<h6>Tool Type: <%=tool.typeOfTool%></h6> 
+			<div class='toolDescription'>Description: <%=tool.description%></div> 
+			<div class='toolDescription'>Contact Owner: <a href='/users/<%=tool.owner._id%>'><%=tool.owner.userName%></a></div>
+			<img src='/tools/<%=tool._id%>/picture' />
+		</div>
+		</li>
 
 		<% })%>
 	</ul>

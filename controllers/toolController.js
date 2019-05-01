@@ -20,7 +20,7 @@ const Comment 	= require('../models/comment.js');
 router.get('/new', (req, res) => {
 	// if user is not logged in, this route redirects to the login page
 	if (req.session.logged !== true){
-		res.send('not logged in \n go to localhost:3000/auth/login') 
+		res.redirect('/auth/login') 
 	} else if (req.session.logged === false) {
 		res.redirect('/auth/login')
 	} else {
@@ -95,13 +95,14 @@ router.get('/:id', async (req, res) => {
 	try{
 		const foundTool = await Tool.findById({_id: req.params.id})
 		.populate('comments')
+		.populate('owner')
 		.exec()
 		// ;
 		// console.log('=====================');
 		// console.log(`${foundTool} <======= tool has hit the TOOL SHOW GET ROUTE!!`);
 		// console.log('=====================');
 		res.render('tools/show.ejs', {
-			tool: foundTool
+			tool: foundTool,
 		});
 
 	} catch (err){
@@ -186,40 +187,30 @@ router.post('/', upload.single('imageData'), async (req, res, next) => {
 });
 /// START OF CREATE/POST ROUTE ///
 
-/// TOOL IMAGE ROUTE ///
-// router.post('/', upload.single('imageData'), async (req, res, next) => {
-			
-// 		})
-
-/// TOOL IMAGE ROUTE ///
 
 /// START OF EDIT PUT ROUTE ///
-router.put('/:id', upload.single('imageData'), async (req, res) => {
+router.put('/:id', upload.single('imageData'), async (req, res, next) => {
+	console.log("\nreq.file");
+	console.log(req.file);
+	if (!req.file){
+		res.send('Sorry, you must upload an image when updating. Press BACK and try again.')
+	}
 	try{
-		// check if the image is part of req.file, find it, and if it is there modify the database query accordingly, and then pass it to multer to be reuploaded. 
-		const updatedToolImage = await Tool.findByIdAndUpdate(req.params.id, req.file, {new:true});
-		console.log('this is req.file ==============');
-		console.log(req.file);
-		console.log('==============');
-		const img = {}
-		img.imageTitle = req.body.imageTitle;
-		img.imageDescription = req.body.imageDescription;
-		img.contentType = req.file.mimetype
-		// filepath leads to /uploads according to multer set up SET AS './uploads/' because toolController is nested once 
+		console.log(req.session.username);
+		
+		const tool = await Tool.findById(req.params.id)
+
 		const filePath = './' + req.file.path
-		img.data = fs.readFileSync(filePath);
+		tool.toolImage.data = fs.readFileSync(filePath);
+		tool.toolImage.contentType = req.file.mimetype
+		tool.toolImage.imageTitle = req.body.imageTitle
+		tool.toolImage.imageDescrption = req.body.imageDescription
 
-
-		const updatedTool = await Tool.findByIdAndUpdate(req.params.id, req.body, {new: true});
-		console.log('=====================');
-		console.log(`${updatedTool} <========== this tool hit the TOOL EDIT PUT ROUTE`);
-		console.log('=====================');
-		await updatedTool.save();
-		await updatedToolImage.save();
+		await tool.save();
 		res.redirect('/tools/' + req.params.id);
 
 	}catch(err) {
-		res.send(err)
+		next(err)
 	}
 });
 /// END OF EDIT PUT ROUTE ///
