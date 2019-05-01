@@ -10,7 +10,7 @@ html, body{
 }
 
 .container {
-	font-family: helvetica;
+	font-family: 'Fjalla One', sans-serif;
 	display: flex;
 	justify-content: center;
 	margin-top: 75px;
@@ -31,7 +31,8 @@ html, body{
 	justify-content: space-around;
 	align-content: baseline;
 	margin-top: 75px;
-	background-color: rgba(115,37,18,.85);
+	
+	background-color: rgba(92,92,92,.65);
 }
 
  .toolDescription {
@@ -40,7 +41,7 @@ html, body{
 }
 
 .row  {
-	background-color: green;
+	background-color: rgba(92,92,92,.65);
 	/*margin: 0 auto;*/
 	display: flex;
 	flex-direction: column;
@@ -58,6 +59,10 @@ html, body{
 
 #commentDiv,#newToolForm {
 	margin-left: 50px;
+}
+
+#commentLink {
+	font-size: 1.5rem;
 }
 
 nav{ 
@@ -78,6 +83,7 @@ nav{
  	flex-direction: column;
  	justify-content: center;
 	margin: 0 auto;
+	color: white;
 }
 
 /*///////////////FORMS///////////////*/
@@ -102,7 +108,7 @@ img {
 	justify-content: space-around;
 	align-content: space-between;
 	margin-top: 75px;
-	background-color: rgba(115,37,18,.85);
+	background-color: rgba(92,92,92,.65);
 }
 
 #noEdit {
@@ -113,7 +119,7 @@ img {
 	align-content: space-between;
 	margin: 75px;
 	padding: 25px;
-	background-color: rgba(115,37,18,.85);
+	background-color: rgba(92,92,92,.65);
 }
 /*COMMENTS PAGES*/
 
@@ -129,22 +135,64 @@ img {
 /*///////////////FORMS///////////////*/
 
 /*////////////headers////////////*/
-h1, h2, h3{
-	color: rgb(20,230,200);
-	font-family: 'ZCOOL KuaiLe', cursive;
+h1, h2, h3, h5 {
+	color: #F2856D; /*pink*/
+	font-family: 'Bangers', cursive;
+	background-color: rgba(92,92,92,.65);
+}
+
+h1 {
+	font-size: 65px;
+	padding: 10px;
+}
+
+h2, a {
+	font-size: 50px;
+	color: #F2856D
+}
+
+/*// links inside of the tool listing*/
+
+#toolListing a {
+	font-size: 2.5rem;
+}
+
+/*// links inside of the tool listing*/
+
+h4 {
+	font-family: 'Fjalla One', sans-serif;
+}
+
+nav {
+	font-size: 36px;
+	color: #BF3111;
+	font-family: 'Bangers', cursive;
 }
 
 footer{
 	display: flex;
 	justify-content: center;
-	color: rgb(20,230,200);
-	font-family: 'ZCOOL KuaiLe', cursive;
+	color: #F2856D;
+	font-family: 'Bangers', cursive;
 }
 
 small{
 	color: rgb(240,230,30);
 }
 
+ul, li {
+	list-style-type: none;
+}
 
+a:hover {
+	color: #F23E16;
+}
 
+button {
+	color: black;
+}
+
+#centerHead {
+	text-align: center;
+}
 
