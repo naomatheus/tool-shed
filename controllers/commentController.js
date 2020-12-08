@@ -44,7 +44,7 @@ router.get('/:toolId/new', async (req, res, next) => {
 //// INDEX GET ROUTE ///
 router.get('/', async (req, res, next) => {
 	try {
-		const foundComments = await Comment.find({});
+		const foundComments = await Comments.find({});
 		console.log('=============');
 		console.log(`${foundComments}, <====== has been found in the COMMENT INDEX GET ROUTE`);
 		console.log('=============');

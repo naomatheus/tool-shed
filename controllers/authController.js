@@ -1,4 +1,4 @@
-const express 			= require('express');
+const express 			= requre('express');
 const router 			= express.Router();
 const mongoose 			= require('mongoose');
 const methodOverride 	= require('method-override');
@@ -12,7 +12,7 @@ const session 			= require('express-session');
 
 /// MAKE A login route that will simulate or actually be a user login
 router.get('/login', (req, res) => {
-	res.render('login.ejs', {
+	res.render('auth/login.ejs', {
 		message: req.session.message
 	})
 });
@@ -20,7 +20,7 @@ router.get('/login', (req, res) => {
 
 /// REGISTRATION GET USER ROUTE
 router.get('/register', (req, res) => {
-		res.render('register.ejs', {
+		res.render('auth/register.ejs', {
 			message: req.session.message
 		})	
 });
@@ -64,7 +64,7 @@ router.post('/register', async (req, res, next) => {
 /// make the form in login.ejs make a request to this
 router.post('/login', async (req, res, next) => {
     try {
-        const foundUser = await User.findOne({'userName': req.body.userName});
+        const foundUser = await User.findOne({userName: req.body.userName});
         if (!foundUser) {
             console.log("User not foundUser")
             res.redirect('/auth/register')
@@ -76,7 +76,7 @@ router.post('/login', async (req, res, next) => {
             if (passwordMatch === true) {
                 req.session.message = '';
                 req.session.logged = true;
-                req.session.username = req.body.userName;
+                req.session.userName = req.body.userName;
                 req.session.usersDbId = foundUser._id;
                 console.log(req.body.userName + " <===== SUCCESSFUL LOGIN!");
                 res.redirect('/tools') 

@@ -2,8 +2,9 @@
 
 <%- include ../partials/header.ejs %>
 <title>Tools Show Page</title>
-
-<h2><%=tool.typeOfTool%>'s Page</h2>
+<div id="centerHead">
+	<h2><%=tool.typeOfTool%>'s Page</h2>
+</div>
 <div class="containerShow">
 	<div id='toolListing'>
 		<img id='showImg' src='/tools/<%=tool._id%>/picture' />
@@ -23,9 +24,17 @@
 </div>
 
 
-		<a href="/comments/<%=tool._id%>/new">LEAVE A COMMENT ABOUT THIS TOOL</a>
+		<a id='commentLink' href="/comments/<%=tool._id%>/new">LEAVE A COMMENT ABOUT THIS TOOL</a>
 
-			<!-- THIS WORKS ^^^ DO NOT FUCK WITH IT ^^^ -->
+		<div id="toolIndexUserStory">
+			<p>
+				Welcome to the ToolShed community.</br> 
+				This is the start of your contact with the tool owner. 
+				<br>
+				Using the tool you want is just a click away. <br>
+				Be as descriptive as possible so the tool owner can get in touch with you! 
+			</p>
+		</div>
 
 
 	<div class='commentContainer'>

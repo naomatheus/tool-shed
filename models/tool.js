@@ -19,7 +19,7 @@ const toolSchema = new mongoose.Schema({
 	},
  	toolImage: { 
  		imageTitle: String,
- 		data: Buffer, 
+ 		data: Buffer,
  		contentType: String,
  		imageDescription: String 
  	} 
